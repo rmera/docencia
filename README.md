@@ -14,7 +14,8 @@ El repositorio contiene el codigo fuente de los diferentes ejemplos utilizados e
 
  1. [Programacion para ciencia: Automatizando tareas](https://github.com/rmera/docencia/wiki/Programacion_para_ciencia)
  2. [Automatizando el proceso de archivos de texto con AWK](https://github.com/rmera/docencia/wiki/Programacion_basica_awk)
-        * [Expresiones regulares en AWK](https://github.com/rmera/docencia/wiki/Awk_expresiones_regulares)
+
+    * [Expresiones regulares en AWK](https://github.com/rmera/docencia/wiki/Awk_expresiones_regulares)
 
 ##
 Copyright (c) Raul Mera A.
