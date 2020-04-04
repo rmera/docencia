@@ -17,6 +17,17 @@ El repositorio contiene el codigo fuente de los diferentes ejemplos utilizados e
 
     * [Expresiones regulares en AWK](https://github.com/rmera/docencia/wiki/Awk_expresiones_regulares)
 
+## Sistema operativo Linux
+
+* [Guia de uso basico a intermedio](https://github.com/rmera/docencia/wiki/Linux)
+   1. [Historia y caracteristicas basicas de sistemas UNIX](https://github.com/rmera/docencia/wiki/historia_linux)
+   2. [Uso practico de Linux](https://github.com/rmera/docencia/wiki/uso_practico_Linux)
+   3. Anexo: [Comandos de UNIX/Linux de uso frecuente](https://github.com/rmera/docencia/wiki/comandos_Linux)
+		 * [Comandos basicos](https://github.com/rmera/docencia/wiki/comandos_Linux#comandos-basicos)
+	     * [Comandos intermedios](https://github.com/rmera/docencia/wiki/comandos_Linux#comandos-intermedios)
+
+
+
 ##
 Copyright (c) Raul Mera A.
 
