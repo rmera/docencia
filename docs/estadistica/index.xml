@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Estadistica on Docencia</title>
-    <link>docencia/docs/estadistica/</link>
+    <link>/docencia/docs/estadistica/</link>
     <description>Recent content in Estadistica on Docencia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="docencia/docs/estadistica/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docencia/docs/estadistica/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>docencia/docs/estadistica/hidden/</link>
+      <link>/docencia/docs/estadistica/hidden/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>docencia/docs/estadistica/hidden/</guid>
+      <guid>/docencia/docs/estadistica/hidden/</guid>
       <description>This page is hidden in menu Quondam non pater est dignior ille Eurotas Latent te facies Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
  Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona O fallor in sustinui iussorum equidem.</description>
     </item>
     
     <item>
       <title>Bayes</title>
-      <link>docencia/docs/estadistica/bayes/</link>
+      <link>/docencia/docs/estadistica/bayes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>docencia/docs/estadistica/bayes/</guid>
+      <guid>/docencia/docs/estadistica/bayes/</guid>
       <description>El Teorema de Bayes, con una aplicacion a la crisis de COVID19 En varios casos nos enfrentamos a problemas del tipo &amp;ldquo;Cual es la probabilidad de que X sea cierto si sabemos que Y es cierto?&amp;rdquo;
 La probabilidad de la pregunta se conoce como &amp;ldquo;Probabilidad Condicional&amp;rdquo;, y se denota P(X|Y).
 Tomemos los casos de COVID19 en Chile como ejemplo. Sabemos que es muy dificil realizar tests a todas las personas infectadas, por lo que el numero de casos confirmados es, casi seguro, menor que el numero de contagiados reales.</description>
@@ -33,10 +33,10 @@ Tomemos los casos de COVID19 en Chile como ejemplo. Sabemos que es muy dificil r
     
     <item>
       <title>Bayes no tecnica</title>
-      <link>docencia/docs/estadistica/bayes_no_tecnica/</link>
+      <link>/docencia/docs/estadistica/bayes_no_tecnica/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>docencia/docs/estadistica/bayes_no_tecnica/</guid>
+      <guid>/docencia/docs/estadistica/bayes_no_tecnica/</guid>
       <description>El Teorema de Bayes (para publico general) En esta pagina trato de explicar el teorema de Bayes de forma no tecnica, con la menor cantidad de matematicas posibles.
 Imaginemos que tenemos 3 bolsitas distintas de M&amp;amp;M:
  Con 10 dulces rojos, y 10 verdes (total: 20). Con 5 duces azules y 10 verdes (total: 15) Con 5 dulces rojos, 3 azules, y 1 verde (total: 9)  El total de de dulces va a ser: 15 rojos, 8 azules, 21 verdes (total: 44).</description>
