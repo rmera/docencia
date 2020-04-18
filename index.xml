@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docencia y extension on Docencia</title>
-    <link>/</link>
+    <link>docencia/</link>
     <description>Recent content in Docencia y extension on Docencia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="docencia/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Creating a New Theme</title>
-      <link>/posts/creating-a-new-theme/</link>
+      <link>docencia/posts/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/creating-a-new-theme/</guid>
+      <guid>docencia/posts/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>/posts/migrate-from-jekyll/</link>
+      <link>docencia/posts/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/migrate-from-jekyll/</guid>
+      <guid>docencia/posts/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
@@ -34,20 +34,20 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>/posts/goisforlovers/</link>
+      <link>docencia/posts/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/goisforlovers/</guid>
+      <guid>docencia/posts/goisforlovers/</guid>
       <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
 This document is a brief primer on using Go templates.</description>
     </item>
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>/posts/hugoisforlovers/</link>
+      <link>docencia/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/hugoisforlovers/</guid>
+      <guid>docencia/posts/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at Install Hugo
@@ -58,60 +58,60 @@ Follow the following steps:
     
     <item>
       <title></title>
-      <link>/docs/estadistica/collapsed/3rd-level/4th-level/</link>
+      <link>docencia/docs/estadistica/collapsed/3rd-level/4th-level/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/estadistica/collapsed/3rd-level/4th-level/</guid>
+      <guid>docencia/docs/estadistica/collapsed/3rd-level/4th-level/</guid>
       <description>4th Level of Menu Caesorum illa tu sentit micat vestes papyriferi Inde aderam facti; Theseus vis de tauri illa peream. Oculos uberaque non regisque vobis cursuque, opus venit quam vulnera. Et maiora necemque, lege modo; gestanda nitidi, vero? Dum ne pectoraque testantur.
 Venasque repulsa Samos qui, exspectatum eram animosque hinc, aut manes, Assyrii. Cupiens auctoribus pariter rubet, profana magni super nocens. Vos ius sibilat inpar turba visae iusto! Sedes ante dum superest extrema.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/docs/estadistica/hidden/</link>
+      <link>docencia/docs/estadistica/hidden/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/estadistica/hidden/</guid>
+      <guid>docencia/docs/estadistica/hidden/</guid>
       <description>This page is hidden in menu Quondam non pater est dignior ille Eurotas Latent te facies Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
  Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona O fallor in sustinui iussorum equidem.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/docs/shortcodes/buttons/</link>
+      <link>docencia/docs/shortcodes/buttons/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/shortcodes/buttons/</guid>
+      <guid>docencia/docs/shortcodes/buttons/</guid>
       <description>Buttons Buttons are styled links that can lead to local page or external link.
 Example {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
     </item>
     
     <item>
       <title></title>
-      <link>/docs/shortcodes/columns/</link>
+      <link>docencia/docs/shortcodes/columns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/shortcodes/columns/</guid>
+      <guid>docencia/docs/shortcodes/columns/</guid>
       <description>Columns Columns help organize shorter pieces of content horizontally for readability.
 {{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic sparator, between columns --&amp;gt; # Mid Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic sparator, between columns --&amp;gt; # Right Content Lorem markdownum insigne... {{&amp;lt; /columns &amp;gt;}} Example Left Content Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter!</description>
     </item>
     
     <item>
       <title></title>
-      <link>/docs/shortcodes/expand/</link>
+      <link>docencia/docs/shortcodes/expand/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/shortcodes/expand/</guid>
+      <guid>docencia/docs/shortcodes/expand/</guid>
       <description>Expand Expand shortcode can help to decrease clutter on screen by hiding part of text. Expand content by clicking on it.
 Example Default {{&amp;lt; expand &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}  Expand ↕  Markdown content Lorem markdownum insigne&amp;hellip;    With Custom Label {{&amp;lt; expand &amp;#34;Custom Label&amp;#34; &amp;#34;...&amp;#34; &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}  Custom Label ...  Markdown content Lorem markdownum insigne.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/docs/shortcodes/hints/</link>
+      <link>docencia/docs/shortcodes/hints/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/shortcodes/hints/</guid>
+      <guid>docencia/docs/shortcodes/hints/</guid>
       <description>Hints Hint shortcode can be used as hint/alerts/notification block.
 There are 3 colors to choose: info, warning and danger.
 {{&amp;lt; hint [info|warning|danger] &amp;gt;}} **Markdown content** Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa {{&amp;lt; /hint &amp;gt;}} Example Markdown content
@@ -120,30 +120,30 @@ Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat str
     
     <item>
       <title></title>
-      <link>/docs/shortcodes/katex/</link>
+      <link>docencia/docs/shortcodes/katex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/shortcodes/katex/</guid>
+      <guid>docencia/docs/shortcodes/katex/</guid>
       <description>KaTeX KaTeX shortcode let you render math typesetting in markdown document. See KaTeX
 Example {{&amp;lt; katex [display] [class=&amp;#34;text-center&amp;#34;] &amp;gt;}} f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi {{&amp;lt; /katex &amp;gt;}}    \[f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi\]   Display Mode Example Here is some inline example: \(\pi(x)\) , rendered in the same line. And below is display example, having display: block \[f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi\] Text continues here.</description>
     </item>
     
     <item>
       <title></title>
-      <link>/docs/shortcodes/mermaid/</link>
+      <link>docencia/docs/shortcodes/mermaid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/shortcodes/mermaid/</guid>
+      <guid>docencia/docs/shortcodes/mermaid/</guid>
       <description>Mermaid Chart Mermaid is library for generating svg charts and diagrams from text.
 Example {{&amp;lt; mermaid [class=&amp;#34;text-center&amp;#34;]&amp;gt;}} sequenceDiagram Alice-&amp;gt;&amp;gt;Bob: Hello Bob, how are you? alt is sick Bob-&amp;gt;&amp;gt;Alice: Not so good :( else is well Bob-&amp;gt;&amp;gt;Alice: Feeling fresh like a daisy end opt Extra response Bob-&amp;gt;&amp;gt;Alice: Thanks for asking end {{&amp;lt; /mermaid &amp;gt;}}     mermaid.initialize({ flowchart: { useMaxWidth:true } });  sequenceDiagram Alice-Bob: Hello Bob, how are you?</description>
     </item>
     
     <item>
       <title></title>
-      <link>/docs/shortcodes/tabs/</link>
+      <link>docencia/docs/shortcodes/tabs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/shortcodes/tabs/</guid>
+      <guid>docencia/docs/shortcodes/tabs/</guid>
       <description>Tabs Tabs let you organize content by context, for example installation instructions for each supported platform.
 {{&amp;lt; tabs &amp;#34;uniqueid&amp;#34; &amp;gt;}} {{&amp;lt; tab &amp;#34;MacOS&amp;#34; &amp;gt;}} # MacOS Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Linux&amp;#34; &amp;gt;}} # Linux Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Windows&amp;#34; &amp;gt;}} # Windows Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; /tabs &amp;gt;}} Example MacOS MacOS This is tab MacOS content.
 Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter!</description>
@@ -151,20 +151,20 @@ Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat str
     
     <item>
       <title></title>
-      <link>/home/</link>
+      <link>docencia/home/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/home/</guid>
+      <guid>docencia/home/</guid>
       <description>Esta es la Wiki de docencia del Profesor Raul Mera A., de la Facultad de Quimica y Biologia de la Universidad de Santiago de Chile.
 Espero ir agregando contenido para estudiantes de Quimica, Bioquimica y similares. El principal objetivo que tiene es complementar el resto de las iniciativas de la Universidad para lidiar con la cuarentena y medidas similares que nos ha impuesto la COVID19. En este caso, para darles temas complementarios para aprender cuando esten aburridas/os :-)</description>
     </item>
     
     <item>
       <title>Bayes</title>
-      <link>/docs/estadistica/bayes/</link>
+      <link>docencia/docs/estadistica/bayes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/estadistica/bayes/</guid>
+      <guid>docencia/docs/estadistica/bayes/</guid>
       <description>El Teorema de Bayes, con una aplicacion a la crisis de COVID19 En varios casos nos enfrentamos a problemas del tipo &amp;ldquo;Cual es la probabilidad de que X sea cierto si sabemos que Y es cierto?&amp;rdquo;
 La probabilidad de la pregunta se conoce como &amp;ldquo;Probabilidad Condicional&amp;rdquo;, y se denota P(X|Y).
 Tomemos los casos de COVID19 en Chile como ejemplo. Sabemos que es muy dificil realizar tests a todas las personas infectadas, por lo que el numero de casos confirmados es, casi seguro, menor que el numero de contagiados reales.</description>
@@ -172,10 +172,10 @@ Tomemos los casos de COVID19 en Chile como ejemplo. Sabemos que es muy dificil r
     
     <item>
       <title>Bayes no tecnica</title>
-      <link>/docs/estadistica/bayes_no_tecnica/</link>
+      <link>docencia/docs/estadistica/bayes_no_tecnica/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/docs/estadistica/bayes_no_tecnica/</guid>
+      <guid>docencia/docs/estadistica/bayes_no_tecnica/</guid>
       <description>El Teorema de Bayes (para publico general) En esta pagina trato de explicar el teorema de Bayes de forma no tecnica, con la menor cantidad de matematicas posibles.
 Imaginemos que tenemos 3 bolsitas distintas de M&amp;amp;M:
  Con 10 dulces rojos, y 10 verdes (total: 20). Con 5 duces azules y 10 verdes (total: 15) Con 5 dulces rojos, 3 azules, y 1 verde (total: 9)  El total de de dulces va a ser: 15 rojos, 8 azules, 21 verdes (total: 44).</description>
