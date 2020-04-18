@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="El Teorema de Bayes. En varios casos nos enfrentamos a problemas del tipo &ldquo;Cual es la probabilidad de que X sea cierto si sabemos que Y es cierto?&rdquo;
+La probabilidad de la pregunta se conoce como &ldquo;Probabilidad Condicional&rdquo;, y se denota P(X|Y).
+Tomemos los casos de COVID19 en Chile como ejemplo. Sabemos que es muy dificil realizar tests a todas las personas infectadas, por lo que el numero de casos confirmados es, casi seguro, menor que el numero de contagiados reales."><meta property="og:title" content="Bayes" />
+<meta property="og:description" content="El Teorema de Bayes. En varios casos nos enfrentamos a problemas del tipo &ldquo;Cual es la probabilidad de que X sea cierto si sabemos que Y es cierto?&rdquo;
+La probabilidad de la pregunta se conoce como &ldquo;Probabilidad Condicional&rdquo;, y se denota P(X|Y).
+Tomemos los casos de COVID19 en Chile como ejemplo. Sabemos que es muy dificil realizar tests a todas las personas infectadas, por lo que el numero de casos confirmados es, casi seguro, menor que el numero de contagiados reales." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/wrk/programs/github.com/rmera/docencia-web/public/docs/estadistica/Bayes/" />
+
+<title>Bayes | Docencia</title>
+<link rel="icon" href="/wrk/programs/github.com/rmera/docencia-web/public/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/wrk/programs/github.com/rmera/docencia-web/public/book.min.284c8fc21ced13c579d9027a9d14893c56b243c6045001180391cebb4cc36ab8.css" integrity="sha256-KEyPwhztE8V52QJ6nRSJPFayQ8YEUAEYA5HOu0zDarg=">
+<script defer src="/wrk/programs/github.com/rmera/docencia-web/public/en.search.min.ab2f2139bf02a2815469d718d4efd355aa5f1e74f3b746351263bde552306560.js" integrity="sha256-qy8hOb8CooFUadcY1O/TVapfHnTzt0Y1EmO95VIwZWA="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/wrk/programs/github.com/rmera/docencia-web/public"><img src="/wrk/programs/github.com/rmera/docencia-web/public/gopher.png" alt="Logo" /><span>Docencia</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/estadistica/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/estadistica/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/estadistica/Bayes/" class="active">Bayes</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/estadistica/Bayes_no_tecnica/" class="">Bayes no tecnica</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/wrk/programs/github.com/rmera/docencia-web/public/posts/" >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/wrk/programs/github.com/rmera/docencia-web/public/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Bayes</strong>
+
+  <label for="toc-control">
+    <img src="/wrk/programs/github.com/rmera/docencia-web/public/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#recursos">Recursos</a></li>
+    <li><a href="#heading"></a></li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="el-teorema-de-bayes">El Teorema de Bayes.</h1>
+<p>En varios casos nos enfrentamos a problemas del tipo &ldquo;Cual es la probabilidad de que X sea cierto si sabemos que Y es cierto?&rdquo;</p>
+<p>La probabilidad de la pregunta se conoce como &ldquo;Probabilidad Condicional&rdquo;, y se denota P(X|Y).</p>
+<p>Tomemos los casos de COVID19 en Chile como ejemplo. Sabemos que es muy dificil realizar tests a todas las personas infectadas, por lo que el numero de casos confirmados es, casi seguro, menor que el numero de contagiados reales.
+Sin embargo, si conocemos el numero de personas hospitalizadas por la enfermedad (pacientes serios o criticos). Podemos usar ese numero para estimar el numero de enfermos totales.</p>
+<p>En este caso, queremos conocer la probabilidad de tener <strong>E</strong> personas enfermas si sabemos que las personas hospitalizadas son un numero conocido <strong>H</strong>. Queremos determinar <strong>P(E|H)</strong></p>
+<p>Que es lo que sabemos?  Sabemos algo importante, el porcentaje de personas enfermas que requieren hospitalizacion Al menos, podemos obtener un estimado razonable de este numero mirando el caso de un pais que tenga muy alta cobertura de tests, digamos, Alemania. Tomando los numeros que aparecen en <a href="https://www.worldometers.info/coronavirus/">aqui</a> podemos concluir de Alemania que el porcentaje de hospitalizacion es cercano al 3.6% de los casos totales. Es decir conocemos la probabilidad de tener <strong>H</strong> hospitalizados si tenemos <strong>E</strong> personas enfermas totales. Conocemos <strong>P(H|E)</strong>.</p>
+<p>Como podemos determinar <strong>P(E|H)</strong> si conocemos <strong>P(H|E)</strong>. Ahi es donde entra el teorema de Bayes! Veamos la formula. Para nuestro problema, el teorema seria:</p>
+<p><img src="https://chart.apis.google.com/chart?cht=tx&amp;chl=P%28E%7cH%29=%5cfrac%7bP%28H%7cE%29P%28E%29%7d%7bP%28H%29%7d" alt="f1" /></p>
+<p>Notese que aparecen dos funciones que no habiamos visto!</p>
+<ol>
+<li>
+<p><strong>P(E)</strong> es la probabilidad <em>a priori</em> de que E personas esten enfermas. Como no tenemos ningun dato, vamos a dejarla como &ldquo;uniforme&rdquo;. Es decir, la misma probabilidad para todo E.</p>
+</li>
+<li>
+<p><strong>P(H)</strong> es la probabilidad de que tengamos H pacientes hospitalizados, independiente del numero de enfermos. En otras palabras, es <strong>P(H|E)</strong> integrada en E desde 0 hasta infinito:</p>
+</li>
+</ol>
+<p><img src="https://chart.apis.google.com/chart?cht=tx&amp;chl=P%28H%29=%5cint_0%5e%7b%5cinfty%7dP%28H%7cE%29P%28E%29dE" alt="f2" /></p>
+<p>Entonces, los valores que necesitamos son la integral de <strong>P(H|E)</strong> de 0 a infinito, para el denominador, y el valor de P(H|E) para un H dado. Aca tenemos un problema. Sabemos que la probabilidad de que una persona enferma requiera hospitalizacion es 0.36%, pero cual es la probabilidad de que H personas requieran hospitalizacion si hay E enfermas? Esto es similar a la probabilidad de sacar X &ldquo;caras&rdquo; al lanzar una moneda Y veces, si la probabilidad de sacar cara en cada lanzamiento es de P%. Conociendo P, la respuesta la da la llamada <em>distribucion binomial</em>.  Entonces, en nuestro caso, P(H|E) es la distribucion binomial con P=0.36%.
+Por si acaso tuvieramos una pequena incerteza en el numero de hospitalizados (puesto que cambia con rapidez) en vez de tomar el valor de P(H|E) para un unto H, voy a tomar la integral de la funcion entre dos puntos H<!-- raw HTML omitted -->1<!-- raw HTML omitted --> y H<!-- raw HTML omitted -->2<!-- raw HTML omitted -->.</p>
+<p>Ya casi tenemos el resultado!</p>
+<p>Ahora mismo tenemos todo para obtener la probabilidad de tener E personas enfermas dado que hay H hospitalizadas.
+El problema es que esa es la probabilidad de tener <em>exactamente</em> E personas enfermas, que nunca va a ser un numero muy grande. Lo que realmente queremos es la probabilidad de tener E personas enfermas <em>o menos</em>. Es decir, la sumatoria de todo lo que hicimos, entre 0 y E. Lo que tenemos que calcular seria:</p>
+<p><img src="https://chart.apis.google.com/chart?cht=tx&amp;chl=%5csum_0%5eE%5cfrac%7b%5cint_%7bH_1%7d%5e%7bH_2%7dP%28H%7cE%29P%28E%29dH%7d%7b%5cint_0%5e%7b%5cinfty%7dP%28H%7cE%29P%28E%29dE%7d" alt="f3" /></p>
+<p>Puesto que <strong>P(E)</strong> es uniforme (basicamente, 1) podemos sacarla y obtener:</p>
+<p><img src="https://chart.apis.google.com/chart?cht=tx&amp;chl=%5csum_0%5eE%5cfrac%7b%5cint_%7bH_1%7d%5e%7bH_2%7dP%28H%7cE%29dH%7d%7b%5cint_0%5e%7b%5cinfty%7dP%28H%7cE%29dE%7d" alt="f3" /></p>
+<p>No se preocupen, no tienen que hacer el calculo ustedes mismos. Aca puse un programita que, dados los numeros, hace las matematicas por Uds:</p>
+<p><a href="http://raul.0x0f.space:8080">http://raul.0x0f.space:8080</a></p>
+<p>Felices calculos!</p>
+<h2 id="recursos">Recursos</h2>
+<ol>
+<li><a href="https://www.youtube.com/watch?v=HZGCoVF3YvM">https://www.youtube.com/watch?v=HZGCoVF3YvM</a></li>
+<li><a href="https://www.youtube.com/watch?v=R13BD8qKeTg">https://www.youtube.com/watch?v=R13BD8qKeTg</a></li>
+<li><a href="https://www.youtube.com/watch?v=9TDjifpGj-k">https://www.youtube.com/watch?v=9TDjifpGj-k</a></li>
+</ol>
+<h2 id="heading"></h2>
+<p><strong>Pd.</strong> El estimado basado en este metodo es mas o menos crudo. Para el porcentaje de hospitalizacion, simplemente tome la cantidad de hospitalizados actuales y la cantidad de casos activos actuales en Alemania. Como todo el material de esta wiki, el objetivo es ensenar, no entregar predicciones.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#recursos">Recursos</a></li>
+    <li><a href="#heading"></a></li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
