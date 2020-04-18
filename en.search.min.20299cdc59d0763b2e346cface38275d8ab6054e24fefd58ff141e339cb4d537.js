@@ -3,7 +3,7 @@ input.addEventListener('focus',init);input.addEventListener('keyup',search);docu
 const characterPressed=String.fromCharCode(event.charCode);if(!isHotkey(characterPressed)){return;}
 input.focus();event.preventDefault();}
 function isHotkey(character){const dataHotkeys=input.getAttribute('data-hotkeys')||'';return dataHotkeys.indexOf(character)>=0;}
-function init(){input.removeEventListener('focus',init);input.required=true;loadScript('/wrk/programs/github/com/rmera/docencia-web/public/flexsearch.min.js');loadScript('/wrk/programs/github/com/rmera/docencia-web/public/en.search-data.min.46eb1c0ab309242b2000046c754f2418479bb32222c531d17e4981e3bda1d729.js',function(){input.required=false;search();});}
+function init(){input.removeEventListener('focus',init);input.required=true;loadScript('/docencia/flexsearch.min.js');loadScript('/docencia/en.search-data.min.05610f46b14a5c1628ac0f4776b8f31d7299bda23d09171f934871e7cad7046c.js',function(){input.required=false;search();});}
 function search(){while(results.firstChild){results.removeChild(results.firstChild);}
 if(!input.value){return;}
 const searchHits=window.bookSearchIndex.search(input.value,10);searchHits.forEach(function(page){const li=document.createElement('li'),a=li.appendChild(document.createElement('a'));a.href=page.href;a.textContent=page.title;results.appendChild(li);});}
