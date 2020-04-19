@@ -1,0 +1,85 @@
+---
+weight: 10
+bookFlatSection: true
+title: "Expresiones Regulares"
+---
+
+# Expresiones regulares
+
+Lo que aparece en este capitulo es valido no solamente para AWK, sino para varias otras herramientas (como el editor Geany, que corre en Windows, MacOS y Linux, asi como para las herramientas de UNIX [Linux y MacOS] grep y sed) y varios lenguajes de programacion, incluyendo Perl, Python, Go (probablemente casi cualquier otro).
+
+En este capitulo asumo que acaban de leer [el capitulo anterior](/docs/programacion/AWK) o que tienen una idea de lo que son las expresiones regulares (o, regex).
+
+En pocas palabras, son "patrones" que calzan con varios textos distintos.
+
+Podriamos decir, entonces, que una expresion regular es una expresion que "calza" en una serie de textos (cadenas de caracteres" objetivo.
+
+Como se logra esto? Con un conjunto de caracteres especiales que representan distintos tipos de caracter (letra, digito o simbolo) y otros que representan las veces que esos caracteres deberian ocurrir en la cadena objetivo para que ocurra el "calce" (*match*).
+
+Veamos uno de los ejemplos del capitulo anterior.
+
+Tenemos un archivo de texto, y queremos detectar las lineas que contienen un numero de telefono chileno.
+Es decir, queremos una expresion regular que calce solamente con numeros de telefono chilenos. Que define a un numero telefonico de Chile? Que comience con los caracteres "+56" y contenga 9 digitos mas.
+
+Veamos una expresion regular que calza con ese patron:
+
+```
+\+56[0-9]{9}
+```
+Admito que se ve raro, pero lo que dice es lo siguiente: *Los primeros caracteres son "+56", luego sigue cualquier caracter entre 0 y 9, y eso mismo (cualquier caracter entre 0 y 9) se repite 9 veces.*
+
+Vamos por parte.
+
+1. El "\\" antes del signo "+" es necesario porque el signo + tiene un significado propio en las expresiones regulares (que vamos a ver mas abajo). Debido a esto, tenemos que agregar el "\\" adelante para indicar que nos referimos al simbolo "+" textual, no al significado que tiene ese simbolo en el lenguaje de expersiones regulares. Esto es necesario si queremos referirnos a cualquier simbolo que tenga un significado en las regex (como,"}",")","\*" etc).
+
+1. El [0-9] es un patron que calza con cualquier caracter entre los dos que aparecen. Asi, [a-z] es cualquier letra minuscula, [A-Z] es cualquier letra mayuscula. En los corchetes uno puede dar un rango, como 0-9, o dar especificamente los caracteres que se aceptan. Por ejemplo, [01] calza solamente con los caracteres 0 y 1. 
+[0-9] es equivalente a [0123456789]. 
+   * Cuando al principio se le agrega "^" dentro del corchete, el significado pasa a ser "cualquier cosa menos lo que esta entre los corchetes". Por ejemplo, [^0-9] calza con cualquier no-digito. [^A-Z] calza con cualquier cosa que no sea una letra mayuscula y [^234] calza con cualquier caracter *menos* 2, 3 o 4. (**Nota**: "^" tiene un significado diferente cuando se usa fuera de los corchetes!. Ese significado se discute mas abajo).
+   * Es posible combinar rangos, como [A-Z] con caracteres explicitos, o dos o mas rangos. [A-Z12] calza con cualquier letra mayuscula, el numero 1 y el numero 2.[a-zA-Z] calza con cualquier letra, minuscula o mayuscula.
+
+1. El {9} indica que el patron anterior (en este caso, [0-9]) debe aparecer exactamente 9 veces. Uno puede usar el *cuantificador* "{}" de varias formas: {3,5} significa que el patron anterior debe aparecer entre 3 y 5 veces. {2,} significa que el patron anterior debe aparecer dos veces o mas y {,6} que debe aparecer entre 0 y 6 veces. Por supuesto, podemos reemplazar los numeros que use en los ejemplos por otros cualesquiera.
+
+
+## Localizadores o "anclas"
+* ^ Indica que la expresion regular que viene a continuacion debe ocurrir al principio del texto objetivo. Por ejemplo, la expresion:  
+
+```
+^\+56[0-9]{9}
+```
+
+Solo calzara con las lineas que *comiencen* con un numero telefonico chileno
+
+* $ Indica que la expresion regular que lo precede debe ocurrir al final del texto objetivo. La expresion:
+
+```
+\+56[0-9]{9}$
+```
+
+Solo calzara con las lineas que *terminen* con un numero de telefono chileno.
+
+Y **Listo** Eso es lo basico que uno necesita para el uso comun de expresiones regulares. Seguramente algunos gurues de las regex van a sufrir un infarto por lo que acabo de escribir, pero es cierto en mi experiencia. De hecho, yo mismo no me se algunas de estas cosas de memoria, tipicamente las busco cuando las necesito (por ejemplo, desde ahora en adelante las voy a buscar aqui mismo!)
+
+Lo que viene es no esencial, pero es comodo, y es bueno tenerlo como referencia. Dale una mirada breve y puedes
+[seguir con el uso de regexes en AWK](./awk#aplicaciones-de-expresiones-regulares-en-awk)
+
+## Cuantificadores abreviados
+
+Vimos ya el principal cuantificador {}. En realidad es todo lo que necesitamos, pero a veces conviene usar cuantificadores abreviados:
+
+* \+  Indica que el patron anterior debe ocurrir una o mas veces. Es equivalente a {1,}
+* \*  Indica que el patron anterior debe ocurrir cero o mas veces.
+
+
+
+## Algunos "atajos".
+
+
+* \d Calza con cualquier digito. Equivale a [0-9]
+* \D Calza con cualquier *no* digito
+* \s Calza con cualquier cantidad de espacios en blanco, tabuladores o similares.
+*  **.** Cualquier simbolo salvo el salto de linea
+
+
+## Un "torpedo" para expresiones regulares.
+
+Una vez que entienden como funcionan las regex, no necesitan memorizar nada, o casi nada. Bajen [este torpedo](https://github.com/rmera/docencia/raw/master/awk/regexcheatsheetRMera.pdf) (en ingles, pero las explicaciones son muy breves) y peguenlo en la pared detras del computador :-)
