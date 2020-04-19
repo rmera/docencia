@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"image/color"
 	"net/http"
+	"os"
 	"path/filepath"
 	"sort"
 	"strconv"
@@ -26,13 +27,13 @@ import (
 //This has a lot of "teaching" comments.
 func bayes(par param) (string, error) {
 	//fmt.Println("Educational Bayes program")
-
+	const padding int = 20000
 	//***********The next 4 variabes are for plotting only
 	//c is the upper limit for the plot, which we will take as the upper limit for our interval of interest (Pu) plus 5000.
 	//cdf will contain the values for CDF at all the plotted range (between 0 and our upper limit + 500)
 	//cdbars is similar, but everything outside our range of interest (i.e. not between Pl and Pu) is set to zero. With the way I'm using now to plot, we don't actually need cdbars!
 	//realcases is just our X axis
-	c := par.Pu + 5000
+	c := par.Pu + padding
 	cdfbars := make([]float64, 0, c)   //here we'll put the CDF values if we are within the range of interest. For points away from our range, we just put zeros.
 	cdf := make([]float64, 0, c)       //the value for all cdfs, whether they are on our range of interest, o not.
 	realcases := make([]float64, 0, c) //just the x axis for our later plot.
@@ -49,7 +50,7 @@ func bayes(par param) (string, error) {
 
 	/*In this loop we go through a large amount of Total cases. We accumuluate the relevant values of P(H|CT), and also the values for P(H).
 	We also gather a large range of P(H|CT) values to plot.*/
-	for i := 0; i <= par.Pu+5000; i++ {
+	for i := 0; i <= par.Pu+padding; i++ {
 		if i == 0 {
 			PHCT.N = float64(i) + 0.001 //N can't be 0 so I just set it to a small number for the first iteration.
 		} else {
@@ -193,8 +194,8 @@ func main() {
 			tmpl.Execute(w, data)
 		}
 	})
-
-	http.ListenAndServe(":8080", nil)
+	port := os.Args[1]
+	http.ListenAndServe(":"+port, nil)
 
 }
 
