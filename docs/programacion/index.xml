@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programacion on Docencia</title>
+    <link>/docencia/docs/programacion/</link>
+    <description>Recent content in Programacion on Docencia</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es-es</language>
+    
+	<atom:link href="/docencia/docs/programacion/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Programacion Basica en AWK</title>
+      <link>/docencia/docs/programacion/awk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docencia/docs/programacion/awk/</guid>
+      <description>Maniuplando archivos de texto con AWK. Esta pagina puede parecer un poco larga, pero no lo es tanto si consideran lo que van a aprender. Es un lenguaje de programacion, especialmente disenado para automatizar una de las tareas mas comunes (y tediosas) a los que todos (no solamente los cientificos) nos enfrentamos: Manipular archivos de texto. Aca vamos a ver solamente algunas caracteristicas basicas AWK, pero suficientes para escribir programas utiles.</description>
+    </item>
+    
+    <item>
+      <title>Expresiones Regulares</title>
+      <link>/docencia/docs/programacion/regex/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docencia/docs/programacion/regex/</guid>
+      <description>Expresiones regulares Lo que aparece en este capitulo es valido no solamente para AWK, sino para varias otras herramientas (como el editor Geany, que corre en Windows, MacOS y Linux, asi como para las herramientas de UNIX [Linux y MacOS] grep y sed) y varios lenguajes de programacion, incluyendo Perl, Python, Go (probablemente casi cualquier otro).
+En este capitulo asumo que acaban de leer el capitulo anterior o que tienen una idea de lo que son las expresiones regulares (o, regex).</description>
+    </item>
+    
+  </channel>
+</rss>

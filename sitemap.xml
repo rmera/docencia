@@ -3,139 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/docencia/docs/estadistica/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/posts/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/posts/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/estadistica/collapsed/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/posts/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/posts/goisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/categories/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/categories/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/tags/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/posts/hugoisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/tags/go/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/tags/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/categories/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/tags/hugo/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/tags/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/tags/templates/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/tags/themes/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/estadistica/collapsed/3rd-level/4th-level/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/estadistica/collapsed/3rd-level/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/estadistica/hidden/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/shortcodes/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/shortcodes/buttons/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/shortcodes/columns/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/shortcodes/expand/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/shortcodes/hints/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/shortcodes/katex/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/shortcodes/mermaid/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/shortcodes/tabs/</loc>
-  </url>
-  
-  <url>
-    <loc>/docencia/docs/estadistica/bayes/</loc>
+    <loc>/docencia/docs/linux/guia_basica/historia/</loc>
   </url>
   
   <url>
@@ -143,7 +11,59 @@
   </url>
   
   <url>
+    <loc>/docencia/docs/estadistica/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/programacion/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/programacion/awk/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/linux/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/linux/guia_basica/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/linux/guia_basica/uso_practico/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/estadistica/bayes/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/programacion/regex/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/linux/guia_basica/comandos/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/estadistica/hidden/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/</loc>
+  </url>
+  
+  <url>
     <loc>/docencia/docs/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/tags/</loc>
   </url>
   
 </urlset>

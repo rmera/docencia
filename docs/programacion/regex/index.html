@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Expresiones regulares Lo que aparece en este capitulo es valido no solamente para AWK, sino para varias otras herramientas (como el editor Geany, que corre en Windows, MacOS y Linux, asi como para las herramientas de UNIX [Linux y MacOS] grep y sed) y varios lenguajes de programacion, incluyendo Perl, Python, Go (probablemente casi cualquier otro).
+En este capitulo asumo que acaban de leer el capitulo anterior o que tienen una idea de lo que son las expresiones regulares (o, regex)."><meta property="og:title" content="Expresiones Regulares" />
+<meta property="og:description" content="Expresiones regulares Lo que aparece en este capitulo es valido no solamente para AWK, sino para varias otras herramientas (como el editor Geany, que corre en Windows, MacOS y Linux, asi como para las herramientas de UNIX [Linux y MacOS] grep y sed) y varios lenguajes de programacion, incluyendo Perl, Python, Go (probablemente casi cualquier otro).
+En este capitulo asumo que acaban de leer el capitulo anterior o que tienen una idea de lo que son las expresiones regulares (o, regex)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docencia/docs/programacion/regex/" />
+
+<title>Expresiones Regulares | Docencia</title>
+<link rel="icon" href="/docencia/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/docencia/book.min.284c8fc21ced13c579d9027a9d14893c56b243c6045001180391cebb4cc36ab8.css" integrity="sha256-KEyPwhztE8V52QJ6nRSJPFayQ8YEUAEYA5HOu0zDarg=">
+<script defer src="/docencia/en.search.min.953f75fac030c0502a6de6ccdb402714c9ce92aa1b3da663c560246273f35633.js" integrity="sha256-lT91&#43;sAwwFAqbebM20AnFMnOkqobPaZjxWAkYnPzVjM="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/docencia"><img src="/docencia/gopher.png" alt="Logo" /><span>Docencia</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/estadistica/" class="">Estadistica</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/estadistica/bayes_no_tecnica/" class="">Bayes no tecnica</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/estadistica/bayes/" class="">Bayes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/programacion/" class="">Programacion</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/programacion/awk/" class="">Programacion Basica en AWK</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/programacion/regex/" class="active">Expresiones Regulares</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/linux/" class="">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/" class="collapsed ">Linux a nivel de usuario</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/docencia/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Expresiones Regulares</strong>
+
+  <label for="toc-control">
+    <img src="/docencia/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#expresiones-regulares">Expresiones regulares</a>
+      <ul>
+        <li><a href="#localizadores-o-anclas">Localizadores o &ldquo;anclas&rdquo;</a></li>
+        <li><a href="#cuantificadores-abreviados">Cuantificadores abreviados</a></li>
+        <li><a href="#algunos-atajos">Algunos &ldquo;atajos&rdquo;.</a></li>
+        <li><a href="#un-torpedo-para-expresiones-regulares">Un &ldquo;torpedo&rdquo; para expresiones regulares.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="expresiones-regulares">Expresiones regulares</h1>
+<p>Lo que aparece en este capitulo es valido no solamente para AWK, sino para varias otras herramientas (como el editor Geany, que corre en Windows, MacOS y Linux, asi como para las herramientas de UNIX [Linux y MacOS] grep y sed) y varios lenguajes de programacion, incluyendo Perl, Python, Go (probablemente casi cualquier otro).</p>
+<p>En este capitulo asumo que acaban de leer <a href="/docs/programacion/AWK">el capitulo anterior</a> o que tienen una idea de lo que son las expresiones regulares (o, regex).</p>
+<p>En pocas palabras, son &ldquo;patrones&rdquo; que calzan con varios textos distintos.</p>
+<p>Podriamos decir, entonces, que una expresion regular es una expresion que &ldquo;calza&rdquo; en una serie de textos (cadenas de caracteres&rdquo; objetivo.</p>
+<p>Como se logra esto? Con un conjunto de caracteres especiales que representan distintos tipos de caracter (letra, digito o simbolo) y otros que representan las veces que esos caracteres deberian ocurrir en la cadena objetivo para que ocurra el &ldquo;calce&rdquo; (<em>match</em>).</p>
+<p>Veamos uno de los ejemplos del capitulo anterior.</p>
+<p>Tenemos un archivo de texto, y queremos detectar las lineas que contienen un numero de telefono chileno.
+Es decir, queremos una expresion regular que calce solamente con numeros de telefono chilenos. Que define a un numero telefonico de Chile? Que comience con los caracteres &ldquo;+56&rdquo; y contenga 9 digitos mas.</p>
+<p>Veamos una expresion regular que calza con ese patron:</p>
+<pre><code>\+56[0-9]{9}
+</code></pre><p>Admito que se ve raro, pero lo que dice es lo siguiente: <em>Los primeros caracteres son &ldquo;+56&rdquo;, luego sigue cualquier caracter entre 0 y 9, y eso mismo (cualquier caracter entre 0 y 9) se repite 9 veces.</em></p>
+<p>Vamos por parte.</p>
+<ol>
+<li>
+<p>El &ldquo;\&rdquo; antes del signo &ldquo;+&rdquo; es necesario porque el signo + tiene un significado propio en las expresiones regulares (que vamos a ver mas abajo). Debido a esto, tenemos que agregar el &ldquo;\&rdquo; adelante para indicar que nos referimos al simbolo &ldquo;+&rdquo; textual, no al significado que tiene ese simbolo en el lenguaje de expersiones regulares. Esto es necesario si queremos referirnos a cualquier simbolo que tenga un significado en las regex (como,&quot;}&quot;,&quot;)&quot;,&quot;*&rdquo; etc).</p>
+</li>
+<li>
+<p>El [0-9] es un patron que calza con cualquier caracter entre los dos que aparecen. Asi, [a-z] es cualquier letra minuscula, [A-Z] es cualquier letra mayuscula. En los corchetes uno puede dar un rango, como 0-9, o dar especificamente los caracteres que se aceptan. Por ejemplo, [01] calza solamente con los caracteres 0 y 1.
+[0-9] es equivalente a [0123456789].</p>
+<ul>
+<li>Cuando al principio se le agrega &ldquo;^&rdquo; dentro del corchete, el significado pasa a ser &ldquo;cualquier cosa menos lo que esta entre los corchetes&rdquo;. Por ejemplo, [^0-9] calza con cualquier no-digito. [^A-Z] calza con cualquier cosa que no sea una letra mayuscula y [^234] calza con cualquier caracter <em>menos</em> 2, 3 o 4. (<strong>Nota</strong>: &ldquo;^&rdquo; tiene un significado diferente cuando se usa fuera de los corchetes!. Ese significado se discute mas abajo).</li>
+<li>Es posible combinar rangos, como [A-Z] con caracteres explicitos, o dos o mas rangos. [A-Z12] calza con cualquier letra mayuscula, el numero 1 y el numero 2.[a-zA-Z] calza con cualquier letra, minuscula o mayuscula.</li>
+</ul>
+</li>
+<li>
+<p>El {9} indica que el patron anterior (en este caso, [0-9]) debe aparecer exactamente 9 veces. Uno puede usar el <em>cuantificador</em> &ldquo;{}&rdquo; de varias formas: {3,5} significa que el patron anterior debe aparecer entre 3 y 5 veces. {2,} significa que el patron anterior debe aparecer dos veces o mas y {,6} que debe aparecer entre 0 y 6 veces. Por supuesto, podemos reemplazar los numeros que use en los ejemplos por otros cualesquiera.</p>
+</li>
+</ol>
+<h2 id="localizadores-o-anclas">Localizadores o &ldquo;anclas&rdquo;</h2>
+<ul>
+<li>^ Indica que la expresion regular que viene a continuacion debe ocurrir al principio del texto objetivo. Por ejemplo, la expresion:</li>
+</ul>
+<pre><code>^\+56[0-9]{9}
+</code></pre><p>Solo calzara con las lineas que <em>comiencen</em> con un numero telefonico chileno</p>
+<ul>
+<li>$ Indica que la expresion regular que lo precede debe ocurrir al final del texto objetivo. La expresion:</li>
+</ul>
+<pre><code>\+56[0-9]{9}$
+</code></pre><p>Solo calzara con las lineas que <em>terminen</em> con un numero de telefono chileno.</p>
+<p>Y <strong>Listo</strong> Eso es lo basico que uno necesita para el uso comun de expresiones regulares. Seguramente algunos gurues de las regex van a sufrir un infarto por lo que acabo de escribir, pero es cierto en mi experiencia. De hecho, yo mismo no me se algunas de estas cosas de memoria, tipicamente las busco cuando las necesito (por ejemplo, desde ahora en adelante las voy a buscar aqui mismo!)</p>
+<p>Lo que viene es no esencial, pero es comodo, y es bueno tenerlo como referencia. Dale una mirada breve y puedes
+<a href="./docs/AWK#aplicaciones-de-expresiones-regulares-en-awk">seguir con el uso de regexes en AWK</a></p>
+<h2 id="cuantificadores-abreviados">Cuantificadores abreviados</h2>
+<p>Vimos ya el principal cuantificador {}. En realidad es todo lo que necesitamos, pero a veces conviene usar cuantificadores abreviados:</p>
+<ul>
+<li>+  Indica que el patron anterior debe ocurrir una o mas veces. Es equivalente a {1,}</li>
+<li>*  Indica que el patron anterior debe ocurrir cero o mas veces.</li>
+</ul>
+<h2 id="algunos-atajos">Algunos &ldquo;atajos&rdquo;.</h2>
+<ul>
+<li>\d Calza con cualquier digito. Equivale a [0-9]</li>
+<li>\D Calza con cualquier <em>no</em> digito</li>
+<li>\s Calza con cualquier cantidad de espacios en blanco, tabuladores o similares.</li>
+<li><strong>.</strong> Cualquier simbolo salvo el salto de linea</li>
+</ul>
+<h2 id="un-torpedo-para-expresiones-regulares">Un &ldquo;torpedo&rdquo; para expresiones regulares.</h2>
+<p>Una vez que entienden como funcionan las regex, no necesitan memorizar nada, o casi nada. Bajen <a href="https://github.com/rmera/docencia/raw/master/awk/regexcheatsheetRMera.pdf">este torpedo</a> (en ingles, pero las explicaciones son muy breves) y peguenlo en la pared detras del computador :-)</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#expresiones-regulares">Expresiones regulares</a>
+      <ul>
+        <li><a href="#localizadores-o-anclas">Localizadores o &ldquo;anclas&rdquo;</a></li>
+        <li><a href="#cuantificadores-abreviados">Cuantificadores abreviados</a></li>
+        <li><a href="#algunos-atajos">Algunos &ldquo;atajos&rdquo;.</a></li>
+        <li><a href="#un-torpedo-para-expresiones-regulares">Un &ldquo;torpedo&rdquo; para expresiones regulares.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

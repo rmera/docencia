@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="El arbol de directorios (carpetas)  El árbol de directorios (carpetas, si se quiere) UNIX es relativamente estándar, uno puede esperar que a grandes rasgos se mantenga no solo en las distintas distribuciones de Linux, si no también en otros UNIX. El directorio raiz se llama “/”, todos los otros directorios son sub-directorios de este. Si un directorio A es subdirectorio de un directorio B se dice que B es el padre de A."><meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docencia/docs/linux/guia_basica/uso_practico/" />
+
+<title>Uso Practico | Docencia</title>
+<link rel="icon" href="/docencia/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/docencia/book.min.284c8fc21ced13c579d9027a9d14893c56b243c6045001180391cebb4cc36ab8.css" integrity="sha256-KEyPwhztE8V52QJ6nRSJPFayQ8YEUAEYA5HOu0zDarg=">
+<script defer src="/docencia/en.search.min.953f75fac030c0502a6de6ccdb402714c9ce92aa1b3da663c560246273f35633.js" integrity="sha256-lT91&#43;sAwwFAqbebM20AnFMnOkqobPaZjxWAkYnPzVjM="></script>
+<link rel="alternate" type="application/rss+xml" href="/docencia/docs/linux/guia_basica/uso_practico/index.xml" title="Docencia" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/docencia"><img src="/docencia/gopher.png" alt="Logo" /><span>Docencia</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/estadistica/" class="">Estadistica</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/estadistica/bayes_no_tecnica/" class="">Bayes no tecnica</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/estadistica/bayes/" class="">Bayes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/programacion/" class="">Programacion</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/programacion/awk/" class="">Programacion Basica en AWK</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/programacion/regex/" class="">Expresiones Regulares</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/linux/" class="">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/" class="collapsed ">Linux a nivel de usuario</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/historia/" class="collapsed ">Historia</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/uso_practico/" class="collapsed active">Uso Practico</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/comandos/" class="collapsed ">Comandos</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/docencia/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Uso Practico</strong>
+
+  <label for="toc-control">
+    <img src="/docencia/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#el-arbol-de-directorios-carpetas">El arbol de directorios (carpetas) </a>
+      <ul>
+        <li><a href="#algunos-directorios-importantes">Algunos directorios importantes.</a></li>
+      </ul>
+    </li>
+    <li><a href="#usuarios-y-permisos">Usuarios y permisos</a></li>
+    <li><a href="#entorno-grafico">Entorno grafico</a></li>
+    <li><a href="#uso-de-la-interfaz-de-linea-de-comandos-cli-tambien-llamda-terminal-o-shell">Uso de la interfaz de linea de comandos (CLI) (tambien llamda terminal, o, shell)</a>
+      <ul>
+        <li><a href="#uso-basico">Uso basico</a>
+          <ul>
+            <li><a href="#que-es-la-iterfaz-de-linea-de-comandos-cli">Que es la iterfaz de linea de comandos (CLI).</a></li>
+            <li><a href="#shells--bash-csh-zsh-fish-ksh">Shells  (bash, csh, zsh, fish, ksh)</a></li>
+            <li><a href="#comandos-programas-argumentos-entrada-salida-y-error-estandar">Comandos, programas, argumentos. Entrada, salida y error estandar.</a></li>
+          </ul>
+        </li>
+        <li><a href="#uso-intermedio">Uso intermedio</a>
+          <ul>
+            <li><a href="#redirigiendo-input-y-output">Redirigiendo input y output.</a></li>
+            <li><a href="#pipelines-o-tuberias">Pipelines o tuberias</a></li>
+            <li><a href="#ejecutando-programas-en-el-fondo-background">Ejecutando programas en el &ldquo;fondo&rdquo; (background)</a></li>
+            <li><a href="#variables-de-la-shell-incluye-path-homeel-archivo-bashrc">Variables de la shell (incluye PATH, HOME)	el archivo .bashrc</a></li>
+            <li><a href="#el-editor-de-texto-nano">El editor de texto Nano</a></li>
+            <li><a href="#el-navegador-web-de-texto-lynx">El navegador web de texto lynx.</a></li>
+            <li><a href="#el-gestor-de-archivos-midnight-commander">El gestor de archivos Midnight Commander</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading"></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="el-arbol-de-directorios-carpetas">El arbol de directorios (carpetas) </h1>
+<p>El árbol de directorios (carpetas, si se quiere)  UNIX es relativamente estándar, uno puede esperar que a grandes rasgos se mantenga no solo en las distintas distribuciones de Linux, si no también en otros UNIX.
+El directorio raiz se llama “/”, todos los otros directorios son sub-directorios de este. Si un directorio A es subdirectorio de un directorio B se dice que B es el padre de A. En UNIX, el simbolo / se usa para el directorio raiz y ademas para separar nombres de directorios, por ejemplo: /home/bin, el directorio bin es un subdirectorio de home, que es un subdirectorio del
+Raiz (“/”).</p>
+<h2 id="algunos-directorios-importantes">Algunos directorios importantes.</h2>
+<ul>
+<li>
+<p>/home Aca estan los directorios personales o de trabajo de los usuarios</p>
+</li>
+<li>
+<p>/etc Donde se encuentran los archivos de configuración</p>
+</li>
+<li>
+<p>/usr contiene archivos que no son del sistema mismo sino para ser utilizados por los usuarios.</p>
+</li>
+<li>
+<p>/dev contiene archivos que representan al hardware presente en el computador</p>
+</li>
+<li>
+<p>/proc contiene archivos relacionados con el kernel: El kernel escribe información que podemos consultar en archivos de este directorio, y, en algunos casos, lee información que podemos escribir ahi.</p>
+</li>
+</ul>
+<h1 id="usuarios-y-permisos">Usuarios y permisos</h1>
+<p>UNIX es un sistema multiusuario, lo que significa que varias personas pueden conectarse al computador a la vez, y cada uno tiene su propio directorio y tal vez programas que otros usuarios no pueden leer o modificar.  Cada archivo en UNIX tiene un propietario y “permisos” de lectura, escritura y ejecución.  Cada usuario decide quien puede leer, escribir en (incluyendo borrar) o ejecutar sus archivos. Este sistema de usuarios y permisos es critico en la prevencion de ataques e infecciones por virus informaticos</p>
+<p>Una excepción es el usuario “root” (Administrador del sistema) que siempre puede leer, escribir en o ejecutar cualquier archivo. Root puede cambiar el permiso e incluso el propietario de cualquier archivo.</p>
+<h1 id="entorno-grafico">Entorno grafico</h1>
+<p>El entorno grafico de Linux (y la mayoría de los sistemas UNIX) está basado en lo que se conoce como “X Window” (hoy en dia, Linux ha compenzado a reemplazar X Window por otros sistemas). Sobre esas librerías funcionan gestores de ventanas y entornos de escritorio que nos proporcionan experiencias de usuario similares a las que encontramos en Windows o MacOS (incidentalmente, MacOS es un sistema UNIX derivado de FreeBSD, aunque usa su propio sistema para entorno gráfico en lugar de X). Algunos entornos disponibles en Linux son Gnome, KDE, XFCE y LXDE.</p>
+<h1 id="uso-de-la-interfaz-de-linea-de-comandos-cli-tambien-llamda-terminal-o-shell">Uso de la interfaz de linea de comandos (CLI) (tambien llamda terminal, o, shell)</h1>
+<h2 id="uso-basico">Uso basico</h2>
+<h3 id="que-es-la-iterfaz-de-linea-de-comandos-cli">Que es la iterfaz de linea de comandos (CLI).</h3>
+<p>La interfaz de linea de comandos es una forma no-grafica de comunicarse con el sistema operativo. Esto significa que en la CLI escribimos comandos que llevan a cabo las funciones que necesitamos.</p>
+<h3 id="shells--bash-csh-zsh-fish-ksh">Shells  (bash, csh, zsh, fish, ksh)</h3>
+<p>La shell es el programa que recibe comandos del usuario y los transmite al sistema (osea, para nuestros propositos shell es lo mismo que CLI). Hay varios tipos de shells con diferencias menores entre ellas. Hay shells antiguas/tradicionales como bourne shell, (sh), csh, ksh, la semi-moderna GNU bash (bourne again shell) y las más nuevas zsh y fish. En linux, bash es lejos la más usada y la que discutimos en este curso.</p>
+<h3 id="comandos-programas-argumentos-entrada-salida-y-error-estandar">Comandos, programas, argumentos. Entrada, salida y error estandar.</h3>
+<p>Cuando se ingresa un comando en la shell, lo que realmente se hace es pedirle a la shell que ejecute el programa cuyo nombre es el comando ingresado  (recordar que en unix cada programa hace un trabajo, y lo hace bien, la shell no hace nada más que comunicar al usuario con el SO).  Los comandos/programas que se ingresan muchas veces aceptan o requieren argumentos y/u opciones. Por ejemplo, el comando mkdir crea un directorio, requiere como argumento el nombre del directorio a crear. El programa/comando ls muestra los contenidos de un directorio, acepta argumentos que determinan el formato en los que se muestran.</p>
+<p>Los programas comúnmente muestran información, y, a veces, requieren información. Por defecto, cuando un programa “escribe” información, lo hace en la llamada “salida estándar” (standard output, stdout) que normalmente es el monitor. Adicionalmente, los errores que un programa imprima se imprimirán en el “estándar de errores” (stderr), normalmente también el monitor. Cuando un programa requiere información (input) la toma comúnmente de la entrada estandar, (standard input, stdin) que suele corresponder al teclado.  Es posible modificar de donde lee y a donde escribe información un programa, como se verá más adelante.</p>
+<p>Aqui una <a href="/docs/linux/comandos#comandos-basicos">lista de comandos basicos</a></p>
+<h2 id="uso-intermedio">Uso intermedio</h2>
+<h3 id="redirigiendo-input-y-output">Redirigiendo input y output.</h3>
+<p>El comportamiento normal de un programa de UNIX es escribir en stdout. Sin embargo es posible redirigir ese flujo de información a un archivo, usando los operadores &gt; y &gt;&gt;.
+Por ejemplo, el comando</p>
+<ul>
+<li>ls &gt; archivo.txt</li>
+</ul>
+<p>redirige la salida de ls al archivo archivo.txt. Es decir, en lugar de mostrar el contenido del directorio actual en pantalla, escribirá estos contenidos al archivo.  Si se usa el operador &gt;, se crea un nuevo archivo y cualquier archivo anterior con el mismo nombre se borra. Si se usa el operador &raquo;, y existe un archivo anterior con el mismo nombre, el flujo se agrega al final de lo que ya habia en el archivo (de no existir un archivo con ese nombre se crea un archivo nuevo).</p>
+<p>Si se utiliza</p>
+<ul>
+<li>ls 2&gt; <em>archivo.txt</em></li>
+</ul>
+<p>la salida estandar no sera redirigida, pero el error estandar se redirigira a archivo.txt. Considere un comando que espera imprima un gran numero de errores que Ud. puede ignorar, pero que dificultan la leida de la salida del programa. En ese caso es posible escribir: “</p>
+<ul>
+<li><em>programa</em> 2&gt; /dev/null</li>
+</ul>
+<p>con lo que el error del programa sera redirigido al archivo /dev/null. /dev/null es un archivo falso que ignora todo lo que se escribe en el, por lo que solamente la salida del programa aparecera en pantalla, mientras que los errores seran ignorados.</p>
+<p>El operador &lt; es equivalente, pero redirige la entrada estándar.  Si un programa requiere información (aparte de las opciones y argumentos) de la entrada estandar,  uno puede entregar el contenido de un archivo en lugar de escribir esa información, de la manera siguiente:</p>
+<ul>
+<li><em>comando</em> &lt; <em>archivo.txt</em></li>
+</ul>
+<h3 id="pipelines-o-tuberias">Pipelines o tuberias</h3>
+<p>Las pipelines o tuberías son otra forma de redirigir input/output. En este caso, lo que hacemos es comunicar dos programas, de forma que la salida de uno sea la entrada del otro. Por ejemplo, el comando ls muestra el contenido de un directorio. Que ocurre si el directorio contiene demasiados archivos como para que quepan en la pantalla? Una opción es redirigir la salida de ls a un programa que nos permita ver el texto de manera más simple, como el comando less. Esto se hace con una tubería que “conecta” ambos programas. El simbolo de tubería o pipeline es “|”</p>
+<ul>
+<li>ls | less</li>
+</ul>
+<p>como no le estamos entregando argumentos a less, mostrara lo que venga por la entrada estándar. Mediante la tubería, reemplazamos la entrada estandar que entregamos a less por la salida de ls.</p>
+<ul>
+<li>ls | wc</li>
+</ul>
+<p>Nos entregará el número de palabras en la salida de ls, que (si cada directorio tiene una palabra) equivaldrá al número de directorios.</p>
+<ul>
+<li>cat <em>archivo1 archivo2 archivo3</em> | wc</li>
+</ul>
+<p>contará las palabras totales en los tres archivos dados a cat.</p>
+<p>Esta es una manera común de combinar programas en UNIX (recordar que cada programa debería hacer una sola cosa cosa, y hacerla bien bien, por lo que combinarlos es importante) Por esta razón, todo programa escrito para UNIX que reciba información debería poder recibir input desde la entrada estándar si es que no recibe una entrada como argumento, y debería escribir a la salida estándar.</p>
+<h3 id="ejecutando-programas-en-el-fondo-background">Ejecutando programas en el &ldquo;fondo&rdquo; (background)</h3>
+<p>Un simbolo de la shell que puede ser útil es “&amp;” que sirve para ejecutar un programa en el “fondo” (background). Normalmente, la shell se congela mientras ejecutamos un programa, y no podemos escribir otro comando hasta que la ejecución termina. Esto puede evitarse usando &amp;, lo que puede ser útil para programas que demoran en ejecutarse, como un cálculo de mecanica cuántica.</p>
+<h3 id="variables-de-la-shell-incluye-path-homeel-archivo-bashrc">Variables de la shell (incluye PATH, HOME)	el archivo .bashrc</h3>
+<p>Como hemos visto, la shell proporciona varias herramientas para facilitar nuestro trabajo (tuberias, redireccion). Otra herramienta importante son las variables de la shell. Una variable  es un espacio en la memoria ligado a un nombre (el nombre de la variable) que contiene un valor.  Por convencion, los nombres de variables de shell se escriben con mayusculas. Por ejemplo:</p>
+<ul>
+<li>NUMERO=2</li>
+</ul>
+<p>crea una variable llamada NUMERO que contiene el valor 2.  Si escribimos el signo dolar antes del nombre de una variable, la shell sustituira el nombre (y el signo dolar) por el valor de la variable.</p>
+<p>En el siguiente ejemplo:</p>
+<pre><code>export FILE=archivo.txt
+less $FILE
+
+</code></pre><p>El comando less nos mostrara el contenido de archivo.txt.
+El comando “export” no es necesario para definir una variable, uno podria simplemente hacer</p>
+<ul>
+<li>FILE= <em>archivo.txt</em></li>
+</ul>
+<p>Sin embargo, export permite que cualquier programa lanzado desde la shell tenga acceso a la variable. Esto es muchas veces necesario y es aconsejable siempre usar “export” salvo que
+se quiera expresamente lograr el efecto contrario.</p>
+<p>Hay varias variables pre-definidas por la shell, varias de ellas usadas internamente por ella.
+La mas importante es PATH. PATH contiene un conjunto de directorios, separados por “:” donde la shell busca un programa con el nombre del comando que el usuario introduzca para ejecutarlo. Cuando ejecutamos ls, la shell busca en los directorios de la variable PATH un programa con ese nombre, y lo ejecuta (los programas basicos del sistema como ls estan en el directorio /bin).</p>
+<p>Podemos ver el contenido de la variable PATH haciendo:</p>
+<pre><code>echo $PATH
+</code></pre><p>Normalmente este comando imprimira algo como:</p>
+<pre><code>/bin:/usr/bin:/usr/local/bin:/opt/bin
+</code></pre><p>Si queremos ejecutar un programa que no esta en el PATH, tenemos que entregar su ubicación:</p>
+<ul>
+<li><em>/directorio/subdirectorio/programa</em></li>
+</ul>
+<p>O si esta en nuestro directorio actual:</p>
+<ul>
+<li>./<em>programa</em></li>
+</ul>
+<p>Es posible modificar las variables de la shell editando el archivo <em>.bashrc</em> que se encuentra en nuestro directorio home (normalmente /home/<em>nombredeusuario</em>)
+Para agregar un directorio nuevo a PATH (por ejemplo, /home/rmera/bin) escribiriamos en .bashrc lo siguiente:</p>
+<p>export PATH=$PATH:/home/rmera/bin</p>
+<p>Una vez escrito esto y guardado (salvado, saved) el archivo, los cambios no se observaran hasta que iniciemos una nueva shell (puesto que la shell lee .bashrc al iniciarse). Una manera de hacer que la shell lea (ejectute) un archivo es utilizando:</p>
+<ul>
+<li>source <em>archivo</em></li>
+</ul>
+<p>por lo que ingresando el comando</p>
+<pre><code>source ~/.bashrc 
+</code></pre><p>se actualizará la variable PATH.</p>
+<p>Otra variable predefinida de la shell es HOME, que contiene el directorio home del usuario.</p>
+<p>Aqui una <a href="/doc/linux/comandos#comandos-intermedios">lista de comandos intermedios</a></p>
+<h3 id="el-editor-de-texto-nano">El editor de texto Nano</h3>
+<p>Nano es un editor de texto simple para UNIX. Esta presente en casi todas las instalaciones, por lo que es bueno tener una idea minima de como usarlo (podria ser el unico editor disponible).</p>
+<p>Para comenzar a editar un archivo el comando es:</p>
+<ul>
+<li>nano <em>archivo</em></li>
+</ul>
+<p>Una vez en el editor, es posible cerrar el editor, sin guardar los cambios realizados al archivo, presionando las teclas “control” (ctlr) y “x” a la vez (ctrl+x) (el editor pedira confirmar si se desean guardar los cambios). Para guardar los cambios realizados a un archivo (sin salir del editor)  se usa la combinacion ctrl+o.</p>
+<h3 id="el-navegador-web-de-texto-lynx">El navegador web de texto lynx.</h3>
+<p>Hay varios motivos por los que podriamos querer navegar la web desde la CLI (en lugar de usar un navegador grafico como Mozilla Firefox o Google Chrome).  Algunos serian que el entorno grafico no estuviera disponible en el computador, o que no quisieramos iniciar una sesion grafica solo para una busqueda breve.</p>
+<p>lynx permite navegar por internet desde la CLI. Desde luego, no es posible ver imagenes ni el formato del texto, pero en varios casos el texto plano es suficiente. Para iniciarlo:</p>
+<ul>
+<li>lynx   <em><a href="http://www.direcciondeinternet.com">http://www.direcciondeinternet.com</a></em></li>
+</ul>
+<p>Puede manejarse la navegacion con las flechas hacia arriba y abajo (que saltaran de link a link).
+Con la flecha hacia la derecha se sigue el link donde el cursor esta actualmente.</p>
+<h3 id="el-gestor-de-archivos-midnight-commander">El gestor de archivos Midnight Commander</h3>
+<p>Midnight Commander, o MC, es un gestor de archivos de dos paneles, similar al antiguo Norton Commander para MS-DOS o a varios programas equivalentes. MC es muy versatil, y puede utilizarse remotamente (osea, via ssh). Aca vemos las funciones basicas. Mi recomendacion es que MC siempre este instalado en todos los computadores con Linux, puesto que hace que el uso de la CLI/shell sea mucho mas simple y comodo.</p>
+<p>Al ingresar a MC (con el comando “mc”) por primera vez, lo primero es presionar F9 y utilizar las flechas hacia el lado para seleccionar la opcion “options”. Con la flecha hacia abajo ir a la tercera opcion “Panel options”, presionar “enter”, usar las flechas hacia abajo para llegar a la opcion “Lynx-like motion” y presionar la barra espaciadora para que la opcion quede marcada. Seguir presionando la flecha hacia abajo hasta llegar a “Ok”, y presionar enter. Esta configuracion facilita el uso del programa.</p>
+<p>El uso de MC es simple.  El programa presenta dos paneles, cada uno muestra el contenido de un directorio (pueden mostrar cada uno un directorio distinto, o ambos el mismo directorio) Para cambiar el cursor de un panel a otro presione la tecla <strong>Tab</strong>.  Para moverse por el panel use las flechas hacia arriba y abajo. Cuando el cursor este en un directorio, puede presionar la flecha a la derecha para entrar en el. Con la flecha a la izquierda se va al directorio padre del actual.</p>
+<h4 id="algunas-teclas-y-combinaciones-utiles-para-mc">Algunas teclas y combinaciones utiles para MC</h4>
+<ul>
+<li>
+<p>F5   Copia el archivo (o directorio) donde esta el cursor al directorio del otro panel, con F6 el archivo se mueve al directorio del otro panel. Con F8 se borra el archivo o directorio donde esta el cursor. Pueden copiarse/moverse/borrarse varios archivos a la vez si los selecciona previamente presionando “insert” cuando el cursor esta sobre el archivo.</p>
+</li>
+<li>
+<p>F3 Muestra el contenido de le archivo donde esta el curso.</p>
+</li>
+<li>
+<p>F4 se usa el editor incluido en MC para editar el archivo donde esta el cursor.</p>
+</li>
+<li>
+<p>F9 Accede a las opciones.</p>
+</li>
+<li>
+<p>F10 se sale de MC (quit).</p>
+</li>
+<li>
+<p>Alt+i (presionar la tecla Alt y, sin soltarla, presionar &ldquo;i&rdquo;) se cambia el otro panel al mismo directorio del panel donde esta el cursor.</p>
+</li>
+<li>
+<p>Ctrl+o Cambia a una shell normal para ingresar comandos. Utilizando la misma combinacion nuevamente, vuelve al modo normal de MC.</p>
+</li>
+<li>
+<p>Alt+enter. Ecribe automaticamente en la shell el nombre del archivo o directorio donde esta el cursor (util para ejecutar un comando en un archivo de nombre largo).</p>
+</li>
+</ul>
+<p>Las opciones accesibles con F9 permiten flitrar archivos (por ejemplo mostrar solo archivos que terminen en .pdf)
+conectarse a otro computador con uno de los dos paneles, etc.  Archivos comprimidos como tgz, tbz o zip pueden verse ingresando en ellos como si fueran un directorio. Posteriormente uno puede copiar los contenidos al directorio del otro panel.</p>
+<p>Lamentablemente, muchos adminisitradores de sistemas no instalan MC en sus maquinas,
+por lo que puede o no estar disponible en un computador dado. Siempre es posible intentar convencer al administrador de que lo instale :-)</p>
+<h2 id="heading"></h2>
+<p>Copyright (c) Raul Mera A.</p>
+<p><strong>Todo el contenido de esta wiki está bajo una <a href="https://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a></strong></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#el-arbol-de-directorios-carpetas">El arbol de directorios (carpetas) </a>
+      <ul>
+        <li><a href="#algunos-directorios-importantes">Algunos directorios importantes.</a></li>
+      </ul>
+    </li>
+    <li><a href="#usuarios-y-permisos">Usuarios y permisos</a></li>
+    <li><a href="#entorno-grafico">Entorno grafico</a></li>
+    <li><a href="#uso-de-la-interfaz-de-linea-de-comandos-cli-tambien-llamda-terminal-o-shell">Uso de la interfaz de linea de comandos (CLI) (tambien llamda terminal, o, shell)</a>
+      <ul>
+        <li><a href="#uso-basico">Uso basico</a>
+          <ul>
+            <li><a href="#que-es-la-iterfaz-de-linea-de-comandos-cli">Que es la iterfaz de linea de comandos (CLI).</a></li>
+            <li><a href="#shells--bash-csh-zsh-fish-ksh">Shells  (bash, csh, zsh, fish, ksh)</a></li>
+            <li><a href="#comandos-programas-argumentos-entrada-salida-y-error-estandar">Comandos, programas, argumentos. Entrada, salida y error estandar.</a></li>
+          </ul>
+        </li>
+        <li><a href="#uso-intermedio">Uso intermedio</a>
+          <ul>
+            <li><a href="#redirigiendo-input-y-output">Redirigiendo input y output.</a></li>
+            <li><a href="#pipelines-o-tuberias">Pipelines o tuberias</a></li>
+            <li><a href="#ejecutando-programas-en-el-fondo-background">Ejecutando programas en el &ldquo;fondo&rdquo; (background)</a></li>
+            <li><a href="#variables-de-la-shell-incluye-path-homeel-archivo-bashrc">Variables de la shell (incluye PATH, HOME)	el archivo .bashrc</a></li>
+            <li><a href="#el-editor-de-texto-nano">El editor de texto Nano</a></li>
+            <li><a href="#el-navegador-web-de-texto-lynx">El navegador web de texto lynx.</a></li>
+            <li><a href="#el-gestor-de-archivos-midnight-commander">El gestor de archivos Midnight Commander</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading"></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

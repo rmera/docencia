@@ -4,16 +4,18 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content=""><meta property="og:title" content="Categories" />
+<meta name="description" content="Sin importar el area de la ciencia en la que quieran trabajar, seguramente va a involucrar estas coas:
+ El uso de un computador El analisis de datos Tareas repetitivas como buscar algo en un archivo de texto  Programar (es decir, escribir programas que luego se ejecuten en un computador) nos ayuda a aprovechar el punto 1 para resolver los problemas derivados de los puntos 2 y 3.
+Que significa escribir un programa?"><meta property="og:title" content="Programacion" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="/docencia/categories/" />
+<meta property="og:url" content="/docencia/docs/programacion/" />
 
-<title>Categories | Docencia</title>
+<title>Programacion | Docencia</title>
 <link rel="icon" href="/docencia/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/docencia/book.min.284c8fc21ced13c579d9027a9d14893c56b243c6045001180391cebb4cc36ab8.css" integrity="sha256-KEyPwhztE8V52QJ6nRSJPFayQ8YEUAEYA5HOu0zDarg=">
 <script defer src="/docencia/en.search.min.953f75fac030c0502a6de6ccdb402714c9ce92aa1b3da663c560246273f35633.js" integrity="sha256-lT91&#43;sAwwFAqbebM20AnFMnOkqobPaZjxWAkYnPzVjM="></script>
-<link rel="alternate" type="application/rss+xml" href="/docencia/categories/index.xml" title="Docencia" />
+<link rel="alternate" type="application/rss+xml" href="/docencia/docs/programacion/index.xml" title="Docencia" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -107,7 +109,7 @@ https://github.com/alex-shpak/hugo-book
         <li class="book-section-flat" >
           
   
-    <a href="/docencia/docs/programacion/" class="">Programacion</a>
+    <a href="/docencia/docs/programacion/" class="active">Programacion</a>
   
 
           
@@ -218,7 +220,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/docencia/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Categories</strong>
+  <strong>Programacion</strong>
 
   <label for="toc-control">
     <img src="/docencia/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -230,27 +232,13 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav>
+  <nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li>
       <ul>
-      
+        <li><a href="#que-significa-escribir-un-programa">Que significa escribir un programa?</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
 
@@ -262,10 +250,21 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-<article class="markdown">
-  <h1>Categories</h1>
-  
-  
+  <article class="markdown"><p>Sin importar el area de la ciencia en la que quieran trabajar, seguramente va a involucrar estas coas:</p>
+<ol>
+<li>El uso de un computador</li>
+<li>El analisis de datos</li>
+<li>Tareas repetitivas como buscar algo en un archivo de texto</li>
+</ol>
+<p>Programar (es decir, escribir programas que luego se ejecuten en un computador) nos ayuda a aprovechar el punto 1 para resolver los problemas derivados de los puntos 2 y 3.</p>
+<h2 id="que-significa-escribir-un-programa">Que significa escribir un programa?</h2>
+<p>Basicamente, significa escribir, en un archivo de texto, instrucciones precisas, paso por paso, para una tarea que queremos que el computador realice.</p>
+<p>El principal factor, es que necesitamos escribir estas instrucciones de forma tal que el computador las &ldquo;entienda&rdquo;.</p>
+<p>Las instrucciones que el computador &ldquo;entiende&rdquo; nativamente son muy basicas:  mover numeros entre una memoria y otra, sumarlos, restarlos, y similar. Si quisieramos escribir directamente en el lenguaje del computador (que se llama <em>lenguaje de maquinas</em>) tendriamos que expresar todo lo que queremos hacer en terminos de mover contenido de memoria, sumar, restar y similar.</p>
+<p>Por supuesto, eso seria muy dificil. Afortunadamente, hay gente que ha escrito programas que nos permiten escribir nuestras instrucciones en un lenguaje mas similar a nuestro lenguaje natural, para que despues sean &ldquo;traducidas&rdquo; al lenguaje de maquinas. Estos programas se llaman &ldquo;compiladores&rdquo; o &ldquo;interpretes&rdquo; (ya vamos a ver la diferencia entre ambos tipos).</p>
+<p>Distintas personas han escrito distintos &ldquo;traductores&rdquo; (compiladores/interpretes) entre diferentes <strong>lenguajes de programacion</strong> y el lenguaje de maquinas. Generalmente, mientras el lenguaje mas se parezca a nuestro lenguaje natural se dice que es de mas <strong>alto nivel</strong> mientras que de los lenguajes mas similares al lenguaje de maquinas se dice que son de <strong>bajo nivel</strong>. Sobre-simplificando, podemos decir que es mas facil escribir programas en lenguajes de alto nivel son mas faciles de usar, mientras que los de bajo nivel producen programs mas eficientes.</p>
+<p>En este articulo vamos a estudiar un lenguaje de programacion de alto nivel, y muy simple llamado <a href="https://en.wikipedia.org/wiki/AWK">AWK</a> (por las iniciales de sus creadores). La razon es que es un lenguaje pequeno, por lo que podemos aprender un buen porcentaje de el en poco espacio, y porque esta hecho para automatizar algo que casi todos tenemos que hacer alguna vez:  Procesar archivos de texto.</p>
+<p><a href="./awk">Vamos a aprender AWK!</a></p>
 </article>
  
       
@@ -286,6 +285,10 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -294,27 +297,13 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav>
+  <nav id="TableOfContents">
   <ul>
-  
-    
-    <li class="book-section-flat">
-      <strong>Categories</strong>
+    <li>
       <ul>
-      
+        <li><a href="#que-significa-escribir-un-programa">Que significa escribir un programa?</a></li>
       </ul>
     </li>
-    
-  
-    
-    <li class="book-section-flat">
-      <strong>Tags</strong>
-      <ul>
-      
-      </ul>
-    </li>
-    
-  
   </ul>
 </nav>
 

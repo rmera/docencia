@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docs on Docencia</title>
-    <link>/docencia/docs/</link>
-    <description>Recent content in Docs on Docencia</description>
+    <title>Linux on Docencia</title>
+    <link>/docencia/docs/linux/</link>
+    <description>Recent content in Linux on Docencia</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es-es</language>
     
-	<atom:link href="/docencia/docs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/docencia/docs/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Maniuplando archivos de texto con AWK. Esta pagina puede parecer un poco larga, pero no lo es tanto si consideran lo que van a aprender. Es un lenguaje de programacion, especialmente disenado para automatizar una de las tareas mas comunes (y tediosas) a los que todos (no solamente los cientificos) nos enfrentamos: Manipular archivos de texto. Aca vamos a ver solamente algunas caracteristicas basicas AWK, pero suficientes para escribir programas utiles."><meta property="og:title" content="Programacion Basica en AWK" />
+<meta property="og:description" content="Maniuplando archivos de texto con AWK. Esta pagina puede parecer un poco larga, pero no lo es tanto si consideran lo que van a aprender. Es un lenguaje de programacion, especialmente disenado para automatizar una de las tareas mas comunes (y tediosas) a los que todos (no solamente los cientificos) nos enfrentamos: Manipular archivos de texto. Aca vamos a ver solamente algunas caracteristicas basicas AWK, pero suficientes para escribir programas utiles." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/docencia/docs/programacion/awk/" />
+
+<title>Programacion Basica en AWK | Docencia</title>
+<link rel="icon" href="/docencia/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/docencia/book.min.284c8fc21ced13c579d9027a9d14893c56b243c6045001180391cebb4cc36ab8.css" integrity="sha256-KEyPwhztE8V52QJ6nRSJPFayQ8YEUAEYA5HOu0zDarg=">
+<script defer src="/docencia/en.search.min.953f75fac030c0502a6de6ccdb402714c9ce92aa1b3da663c560246273f35633.js" integrity="sha256-lT91&#43;sAwwFAqbebM20AnFMnOkqobPaZjxWAkYnPzVjM="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/docencia"><img src="/docencia/gopher.png" alt="Logo" /><span>Docencia</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/estadistica/" class="">Estadistica</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/estadistica/bayes_no_tecnica/" class="">Bayes no tecnica</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/estadistica/bayes/" class="">Bayes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/programacion/" class="">Programacion</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/programacion/awk/" class="active">Programacion Basica en AWK</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/programacion/regex/" class="">Expresiones Regulares</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/linux/" class="">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/" class="collapsed ">Linux a nivel de usuario</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/docencia/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Programacion Basica en AWK</strong>
+
+  <label for="toc-control">
+    <img src="/docencia/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#maniuplando-archivos-de-texto-con-awk">Maniuplando archivos de texto con AWK.</a>
+      <ul>
+        <li><a href="#el-lenguaje">El lenguaje</a>
+          <ul>
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#patrones-especiales">Patrones especiales</a></li>
+            <li><a href="#cambiando-de-separador-y-otras-variables-pre-definidas">Cambiando de separador, y otras variables pre-definidas.</a></li>
+            <li><a href="#funciones">Funciones</a></li>
+          </ul>
+        </li>
+        <li><a href="#proceso-avanzado-de-texto">Proceso avanzado de texto.</a>
+          <ul>
+            <li><a href="#continuar-leyendo-sobre-expresiones-regularesdocsprogramacionregex"><a href="/docs/programacion/regex">Continuar leyendo sobre expresiones regulares</a></a></li>
+            <li><a href="#aplicaciones-de-expresiones-regulares-en-awk">Aplicaciones de Expresiones regulares en AWK</a></li>
+          </ul>
+        </li>
+        <li><a href="#recursos-adicionales">Recursos adicionales</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="maniuplando-archivos-de-texto-con-awk">Maniuplando archivos de texto con AWK.</h1>
+<p>Esta pagina puede parecer un poco larga, pero no lo es tanto si consideran lo que van a aprender. Es un lenguaje de programacion, especialmente disenado para automatizar una de las tareas mas comunes (y tediosas) a los que todos (no solamente los cientificos) nos enfrentamos: Manipular archivos de texto. Aca vamos a ver solamente algunas caracteristicas basicas AWK, pero suficientes para escribir programas utiles.</p>
+<p>Por ahora, mis ejemplos pueden ser poco realistas, pero a medida que vemos algunas caracteristicas mas avanzadas de AWK, vamos a ser capaces de enfrentar problemas &ldquo;del mundo real&rdquo;. Veamos las siguientes situaciones de ejemplos:</p>
+<ol>
+<li>
+<p>Tenemos un grupo de 500 secuencias de proteina en formato FASTA. Sabemos que 200 de estas secuencias contienen la subsecuencia AAEGGEAAH, necesitamos encontrarlas y ponerlas en un nuevo archivo.</p>
+</li>
+<li>
+<p>En nuestra labor docente, tenemos las notas de 3 pruebas para 100 estudiantes, con sus respectivos nombres, en un archivo de texto separado por espacios. Queremos saber quienes de ellos tienen promedio menor o igual a 4, para tratar de determinar por que tienen problemas en el curso.</p>
+</li>
+<li>
+<p>Tenemos las coordenadas de una molecula en formato PDB (protein data bank), las queremos en el formato XYZ (utilizado por programas de mecanica cuantica).</p>
+</li>
+</ol>
+<p>En estos tres problemas, necesitamos extraer informacion de archivos de texto, en los que cada linea esta dividida en &ldquo;campos&rdquo; Por ejemplo. Cada linea del ejemplo 2 tiene varios &ldquo;campos&rdquo;: nombre, apellido, nota 1, nota 2 y nota 3, separados por espacios.</p>
+<p>AWK es un lenguaje de programacion pensado especialmente para este tipo de trabajos. Si bien puede utilizarse para distintas cosas, los programas escritos en AWK que solucionan problemas como los de los ejemplos suelen ser muy breves, a veces, una sola linea de codigo.</p>
+<p>Para aquellos de Uds. que tengan Linux instalado en sus computadoras, AWK viene de seguro como parte del sistema. Aunque no estoy completamente seguro, creo que ese es tambien el caso para los usuarios de MacOS. Los usuarios de Windows deberan descargar una version compatible (el software es &ldquo;libre&rdquo; y gratuito, por lo que no deberia ser dificil de encontrar).</p>
+<h2 id="el-lenguaje">El lenguaje</h2>
+<p>En el caso mas simple, un programa en AWK no es mas que un comando que se ejecuta para cada linea de un archivo.</p>
+<p>El siguiente programa:</p>
+<p><code>{print}</code></p>
+<p>Imprimira todas las lineas del archivo en cuestion. Para lograr que AWK ejecute nuestro programa, &ldquo;llamamos&rdquo; al interprete con el comando &ldquo;awk&rdquo;, seguido del programa (o del archivo que contiene al programa) y del nombre del archivo a procesar. Si nuestro archivo se llama archivo.txt, el comando completo seria:</p>
+<p><code>awk '{print}' archivo.txt</code></p>
+<p>Por supuesto, ese no es un programa muy util. Un programa en AWK un poco menos simple, pero mas util tiene la siguiente estructura:</p>
+<p><strong>patron1</strong> {<strong>accion1</strong>};<strong>patron2</strong> {<strong>accion2</strong>}</p>
+<p>Para cada linea de nuestro archivo, AWK evaluara si el <strong>patron1</strong> se cumple. En ese caso, realizara la <strong>accion1</strong>. Luego, AWK evaluara si <strong>patron2</strong> se cumple. En ese caso, realizara <strong>accion2</strong> Podemos definir tantos pares accion - patron como queramos. Tambien podemos definir una accion vacia, sin patron, como en el ejemplo anteiror (en el que todo el programa es la accion &lsquo;{print}'. Una accion sin patron se realiza en todas las lineas.</p>
+<p>Consideremos el problema del primer ejemplo. Un archivo que contiene una secuencia de aminoacidos en cada linea, y contiene 500 lineas de interes en total. Queremos imprimr las secuencias que contentan la subsecuencia <em>AAEGGEAAH</em>. Una solucion probablemente aceptable (aunque no optima), la entrega el siguiente programa en AWK:</p>
+<p><code>/AAEGGEAAH/ {print NR, $0}</code></p>
+<p>Que ejecutariamos asi:</p>
+<p><code>awk '/AAEGGEAAH/ {print NR, $0}' secuencias.fasta</code></p>
+<p>En este caso el <strong>patron</strong> es encontrar la secuencia de texto <em>AAEGGEAAH</em> en la linea (las barras inclinadas al rededor de un texto indican que el patron es cierto si el texto se encuentra en la linea). Si el patron se cumple, la accion es imprimir el numero de linea (NR) y la linea completa $0.</p>
+<p>Aca observamos el primer uso de variables. Las variables son &ldquo;cajitas&rdquo; con nombre que contienen un valor.</p>
+<p>Cuando AWK ejecuta un programa, lee el archivo en cuestion linea por linea. Para cada linea que lee, asigna el numero de la linea a la variable NR (es decir, la &ldquo;cajita&rdquo; NR pasa a contener el numero de la linea) y asigna la linea misma a la variable $0. Esas no son todas las variables que asigna! Ademas, al leer cada linea, la separa en &ldquo;campos&rdquo;  separados por espacios (por defecto, mas adelante veremos como cambiar el separador). El primera campo queda guardado en la variable $1, el segundo en la variable $2, el tercero en la variable $3 y asi, tantos campos como tenga la linea en cuestion.</p>
+<p>Considerando la informacion del parrafo anterior, es facil crear un programa en AWK para resolver el problema del ejemplo 2. Imaginemos que cada linea del archivo es como la siguiente:</p>
+<p>&lsquo;Apellido Nombre  nota1 nota2 nota3&rsquo;</p>
+<p>El siguiente programa en AWK imprimira solamente las lineas de aquellos estudiantes con promedio menor o igual a 4.0.</p>
+<p><code>awk '($4+$5+$6)/3 &lt;= 4.0 {print $0, ($4+$5+$6)/3}' notas.dat</code></p>
+<p>Notese que incluyo el comando completo. El programa <em>per se</em> es solamente la parte entre comillas.</p>
+<p><strong>Que hace este programa?</strong></p>
+<p>Para cada linea, analiza si el patron <em>($4+$5+$6)/3 &lt;= 4.0</em> se cumple. El patron dice, la suma de los campos 4, 5 y 6 dividida por 3 debe ser menor o igual que 4.0. &lsquo;&lt;=&rsquo; es la forma en que &ldquo;menor o igual&rdquo; se escribe normalmente en programacion.</p>
+<p>Pusto que los apellidos y el nombre ocupan los 3 primeros campos, las variables $4, $5 y $6 contienen la primera, segunda y tercera nota, respectivamente, para cada linea. La suma de las tres variables divididas por 3 no es mas que el promedio de las notas. Si el patron se cumple (es decir, si el promedio de las notas es menor o igual a 4), el programa imprimra dos cosas: $0, es decir, la linea completa, y, ademas, el promedio calculado.</p>
+<h3 id="variables">Variables</h3>
+<p>Pese a que AWK define ciertas variables, eso no nos limita. En nuestros programas, podemos modificar el valor de variables pre-definidas por AWK, o definir las nuestras propias.</p>
+<p>Recuerdan que dijimos que la solucion al problema 1 que planteamos antes no era optima? La razon es que imprime el numero de la linea en el archivo inicial, y luego la secuencia, pero no imprime la informacion de la secuencia en formato FASTA. En el formato FASTA, cada secuencia se anota (basicamente) de esta forma:</p>
+<pre><code>&gt;informacion de la secuencia
+AFFLWHHEIFHASQYCLGGGHEDRP
+</code></pre><p>(por supuesto, para las proteinas, las secuencias tienden a ser mas largas).
+Nuestro programa anterior en awk no escribia la primera linea, la que comienza en &ldquo;&gt;&rdquo;. Escribamos un programa, algo mas complejo, que si lo hace:</p>
+<pre><code>awk '/AAEGGEAAH/ {print ANTERIOR,&quot;\n&quot;, $0}; {ANTERIOR=$0}' secuencias.fasta
+</code></pre><p>Es un poco dificil descifrar lo que hace este programa, porque involucra algo nuevo: Una variable definida por nosotros, que no estaba pre-definida por AWK. (ademas, este es el primer programa en el que definimos mas de una accion!)</p>
+<p>OK, veaoms el programa. Tiene dos patrones. El primero es <em>/AAEGGEAAH/</em> Como vimos, las barras &ldquo;/&rdquo; al rededor del texto indican que el patron se cumple si la linea actual contiene ese texto. En ese caso, el programa va a imprimir dos cosas: Primero, una variable llamada &ldquo;ANTERIOR&rdquo;, luego el texto &ldquo;\n&rdquo; y finalmente, la linea actual ($0).</p>
+<p>El texto &ldquo;\n&rdquo; no es mas que el boton  <strong>enter</strong> o cambio de linea.</p>
+<p>Que valor contiene la variable ANTERIOR?. Esa variable la definimos en la siguiente accion. La siguiente accion no tiene ningun patron, por lo que se ejecuta para todas las lineas. Lo unico que hace es definir la variable ANTERIOR como el texto de la linea actual.</p>
+<p>Aca biene lo complicado. AWK ejecuta las acciones en el orden que nosotros se las damos. Ppor lo que si analiza un archivo que tiene este texto:</p>
+<pre><code>&gt;primera 
+ AAAAGRTYAAEGGEAAHHHEG
+</code></pre><p>En la primera linea, el patron <em>/AAEGGEAAH/</em> no se cumple, por lo que AWK <strong>no</strong> realiza la accion {print ANTERIOR,&quot;\n&rdquo;, $0}. Sin embargo, la siguiente accion no tiene patron asociado, por lo que se realiza siempre. Esto significa que desde ahora, la variable ANTERIOR tiene el siguiente valor: &ldquo;&gt;primera&rdquo; (el contenido de la line actual).</p>
+<p>En la segunda linea, el patron  <em>/AAEGGEAAH/</em> <em>si</em> se cumple, por lo que AWK realiza la accion:</p>
+<pre><code>{print ANTERIOR,&quot;\n&quot;, $0}
+</code></pre><p>Que valor tiene ANTERIOR? El ultimo que le asignamos, es decir &ldquo;&gt;primera&rdquo;, por lo que awk imprime &ldquo;&gt;primera&rdquo;, cambio de linea, y la linea actual. Es decir, AWK imprime:</p>
+<pre><code>&gt;primera 
+ AAAAGRTYAAEGGEAAHHHEG
+</code></pre><p>Una vez que esta accion se ejecuta, se vuelve a ejecutar la accion <em>ANTERIOR=$0</em>, por lo que el valor de ANTERIOR cambia, y pasa a ser &ldquo;AAAAGRTYAAEGGEAAHHHEG&rdquo;. Eso no importa, porque ya no vamos a imprimrla por ahora.</p>
+<p>El tema de las variables es un poco complejo. Piensenlo un rato.</p>
+<h3 id="patrones-especiales">Patrones especiales</h3>
+<p>Como vimos, los proramas (simples) en AWK son conjuntos de pares patron-accion. En cada linea del archivo que estamos procesando, se analiza se el patron se cumple. Si es que esto es asi, la accion se ejecuta.</p>
+<p>Existen algunos patrones especiales. Vamos a ver dos:</p>
+<h4 id="begin">BEGIN</h4>
+<p>BEGIN es un patron que se cumple al principio del archivo, antes de leer la primera linea. Es util para realizar acciones que queremos ejecutar solamente una vez, al comienzo.
+Por ejemplo, en el problema 2, en el que procesamos un archivo con notas para aislar solamente a los estudiantes con promedio menor o igual a 4. Podemos agregar el patron BEGIN al programa para ponerle un titulo al nuevo archivo que vamos a generar:</p>
+<p><code>awk 'BEGIN {print &quot;Estudiantes que requieren apoyo especial\n&quot; } ($4+$5+$6)/3 &lt;= 4.0 {print $0, ($4+$5+$6)/3}' notas.dat</code></p>
+<p>La accion despues de BEGIN solamente se ejecutara una vez, al inicio.</p>
+<h4 id="end">END</h4>
+<p>END es un patron similar a BEGIN, pero que se cumple al terminar el archivo, despues de leer la ultima linea.</p>
+<h3 id="cambiando-de-separador-y-otras-variables-pre-definidas">Cambiando de separador, y otras variables pre-definidas.</h3>
+<p>Que ocurre si los distintos campos de nuestro archivo de texto no estan separados por espacios?
+Por ejemplo, en nuestro problema 2, en lugar de espacios, podriams tener los nombres y notas separados por comas. En ese caso, cada linea del archivo seria:</p>
+<p>nomber,apellido,nota1,nota2,nota3</p>
+<p>No hay problema! Solamente necesitamos cambiarla variable &ldquo;FS&rdquo; (<em>field separator</em>, separador de campos) que por defecto es &quot; &quot; por &ldquo;,&quot;. Esto lo podemos hacer al inicio del archivo, cuando se cumple el patron BEGIN. Un programa modificado para resolver elproblema 2 en un archivo separado por comas seria:</p>
+<pre><code>awk 'BEGIN {FS=&quot;,&quot;};($4+$5+$6)/3 &lt;= 4.0 {print $0, ($4+$5+$6)/3}' notas_coma.dat
+</code></pre><p>Otras variables pre-definidas interesantes:</p>
+<ul>
+<li>NF (<em>number of fields</em>, numero de campos) contiene el numero de campos en la linea actual</li>
+<li>NR (<em>number of records</em>, numero de registros) contiene el numero de lineas leidas hasta ahora</li>
+</ul>
+<h3 id="funciones">Funciones</h3>
+<p>Una funcion es similar a una funcion matematica. Es una entidad (o sea, &ldquo;algo&rdquo;) a lo que le entregamos un valor, y nos devuelve otro. En el caso de los programas computacionales, una funcion, ademas de devolver un valor (o, en vez de devolver un valor) puede llevar a cabo una accion.</p>
+<p>En AWK podemos definir nuestras propias funciones, o usar funciones pre-definidas. En este tutorial no voy a hablar sobre definir fuciones, y solamente voy a tratar una funcion pre-definida que me parece importante.</p>
+<ul>
+<li>gsub(&ldquo;texto-a-buscar&rdquo;,&ldquo;texto-a-reemplazar&rdquo;)</li>
+</ul>
+<p>Esta funcion reemplaza todas las occurrencias del texto &ldquo;texto-a-buscar&rdquo; en $0 (la linea actual) por &ldquo;texto-a-reemplazar&rdquo;. Es basicamente el &ldquo;buscar y reemplazar&rdquo; de AWK.   Como vamos a ver en la seccion siguiente, puede hacer bastante mas cosas que lo que normalmente se hace con &ldquo;buscar y reemplazar&rdquo;. Por ahora, veamos un ejemplo simple.</p>
+<p>Imaginemos que, en nuestro ejemplo de las notas, en lugar de nuestra tarea anterior, queremos agregar un asterisco (*) al principio de las lineas que correspondan a estudiantes de apellido &ldquo;Alvarez&rdquo;. El codigo seria el siguiente:</p>
+<pre><code>awk '{gsub(&quot;Alvarez&quot;,&quot;*Alvarez&quot;)}; {print}' notas.dat
+</code></pre><h2 id="proceso-avanzado-de-texto">Proceso avanzado de texto.</h2>
+<p>Tengo que confesarles algo. En el ejemplo:</p>
+<pre><code>/AAEGGEAAH/ {print NR, $0}
+</code></pre><p>Les dije que el patron encerrado en &ldquo;/&rdquo; se cumplia si el texto encerrado entre las dos &ldquo;/&rdquo; estaba en la linea.
+esto no es exactaente cierto.  La razon es que no necesariamente tenemos que poner el texto <em>exacto</em> que queremos ver si se encuentra en la linea! Podemos utilizar &ldquo;patrones&rdquo; que calzan con varios textos distintos. Por ejemplo:</p>
+<ul>
+<li>
+<p>Podemos buscar si la linea contine un texto que contenga &ldquo;@&rdquo; despues un texto cualquier, y terminara en .cl (ese patron se cumliria en todas las lineas que contuvieran direcciones de e-mail en servidores chilenos (como usach.cl, uchile.cl).</p>
+</li>
+<li>
+<p>Podemos buscar si la linea contiene los caracteres &ldquo;+56&rdquo; y 9 digitos seguidos mas (este patron se cumpliria en lineas que contuvieran numeros telefonicos chilenos.</p>
+</li>
+<li>
+<p>Podemos buscar si la linea contiene una secuencia de los siguientes aminoacidos: Dos Histidinas, una glicina o bien una alanina y tres cisteinas.  Ese patron se cumpliria en lineas que contuvieran las secuencias &ldquo;HHACCC&rdquo; o &ldquo;HHGCCC&rdquo;.</p>
+</li>
+</ul>
+<p>Como se hace esto? Utilizando expresiones regulares. El uso basico de expresiones regulares (que es todo lo que uno generalmente necesita) es bastante sencillo, y muchas veces resulta util. Ademas de AWK, pueden usarse para buscar texto en algunos editores (Geany, un editor gratuito que funciona en Windows, Linux y MacOS, por ejemplo) y en varios otros lenguajes y herramientas.</p>
+<p>Si bien es sencillo, prefiero ponerlo en su propia pagina, para que esta no quede tan larga.</p>
+<h3 id="continuar-leyendo-sobre-expresiones-regularesdocsprogramacionregex"><a href="/docs/programacion/regex">Continuar leyendo sobre expresiones regulares</a></h3>
+<h3 id="aplicaciones-de-expresiones-regulares-en-awk">Aplicaciones de Expresiones regulares en AWK</h3>
+<h4 id="eliminando-correos-electronicos-de-un-documento-o-de-varios-documentos">Eliminando correos electronicos de un documento (o de varios documentos!)</h4>
+<p>Imaginemos que tenemos un documento con informacion de, digamos, 500 personas cada uno, que debe subirse a internet. En general, para evitar el spam, es buena idea no poner direcciones de correo electronico en internet, salvo que sea estrictamente necesario. Necesario. Utilicemos la funcion <strong>gsub</strong> para eliminar las direcciones e correo de los distintos archivos. Una expresion regular que deberia funcionar es:</p>
+<pre><code>.+@.+\.[]{1-3}
+</code></pre><p>Como toda buena expresion regular, se ve incomprensible, pero en realidad no lo es tanto. Si recuerdan, el punto simboliza cualquier caracter. El signo + que lo sigue, indica que este caracter (cualquier) debe repetirse al menos una vez (aunque pocos, hay nombre de usuario de email con solo una letra!). Despues de esta parte, que corresponde al nombre de usuario, debe venir un signo &ldquo;@&quot;. Finalmente, nuevamente cualquier caracter 1 o mas veces (notese que .+ significa &ldquo;cualquier caracter&rdquo; &ldquo;lo anterior se repite 1 o mas veces&rdquo;, es decir, no necesariamente es el mismo caracter el que tiene que repetirse varias veces). Finalmente, tenemos un punto (precedido de &ldquo;\&rdquo; para indicar que nos referimos al caracter &ldquo;.&quot;, y no a &ldquo;cualquier caracter&rdquo;) seguido de tres caracteres cualquiera.</p>
+<p>Esta expresion regular es aceptable para detectar direcciones de email, pero tiene algunos problemas.</p>
+<ol>
+<li>Acepta cualquier combinacion de caracteres como nombre de usuario. Que yo sepa, los nombres de usuario solo pueden contener letras, numeros, puntos y guiones (&quot;-&rdquo; y &ldquo;_&quot;).</li>
+<li>Lo mismo para el servidor (lo que viene detras de la arroba) y las tres letras finales.</li>
+</ol>
+<p>Usemos la expresion regular junto con <strong>gsub()</strong> para buscar y reemplazar correos en un archivo:</p>
+<pre><code>awk '{gsub(&quot;.+@.+\.[]{1-3}&quot;,&quot;RETIRADO&quot;)}{print $0}' archivo1.txt archivo2.txt archivo3.txt
+</code></pre><p>Ese programa reemplaza direcciones de correos por la palabra &ldquo;RETIRADO&rdquo; en todas las lineas (debido a las limitaciones de la regex que comentamos, es posible que reemplace texto que no corresponde realmente a una direccion de correo).</p>
+<h2 id="recursos-adicionales">Recursos adicionales</h2>
+<p>Lamentablemente, estos libros estan (o, al menos, yo los encontre) solamente en ingles.</p>
+<ul>
+<li><a href="https://9p.io/cm/cs/awkbook/index.html">El principal libro sobre AWK, por sus creadores</a></li>
+<li><a href="https://www.gnu.org/software/gawk/manual">Otro buen libro (o, eso entiendo) y gratuito</a></li>
+<li><a href="https://en.wikibooks.org/wiki/AWK">Otro libro gratuito (ignoro que tan bueno es)</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#maniuplando-archivos-de-texto-con-awk">Maniuplando archivos de texto con AWK.</a>
+      <ul>
+        <li><a href="#el-lenguaje">El lenguaje</a>
+          <ul>
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#patrones-especiales">Patrones especiales</a></li>
+            <li><a href="#cambiando-de-separador-y-otras-variables-pre-definidas">Cambiando de separador, y otras variables pre-definidas.</a></li>
+            <li><a href="#funciones">Funciones</a></li>
+          </ul>
+        </li>
+        <li><a href="#proceso-avanzado-de-texto">Proceso avanzado de texto.</a>
+          <ul>
+            <li><a href="#continuar-leyendo-sobre-expresiones-regularesdocsprogramacionregex"><a href="/docs/programacion/regex">Continuar leyendo sobre expresiones regulares</a></a></li>
+            <li><a href="#aplicaciones-de-expresiones-regulares-en-awk">Aplicaciones de Expresiones regulares en AWK</a></li>
+          </ul>
+        </li>
+        <li><a href="#recursos-adicionales">Recursos adicionales</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

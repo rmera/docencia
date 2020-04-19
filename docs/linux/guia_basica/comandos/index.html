@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Convenciones El formato que usamos en esta guia es:
+comando [-opcion1 -opcion2] argumento1 argumento2 &hellip;
+En general las opciones pueden escribirse también: comando -opcion1opcion2. Los corchetes se usan para delimitar opciones, pero no deben incluirse al escribir el comando. El texto en cursiva representa algo que debe reemplazarse por texto según el requerimiento del usuario. A veces se usan puntos suspensivos para indicar que es posible agregar más argumentos del mismo tipo."><meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docencia/docs/linux/guia_basica/comandos/" />
+
+<title>Comandos | Docencia</title>
+<link rel="icon" href="/docencia/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/docencia/book.min.284c8fc21ced13c579d9027a9d14893c56b243c6045001180391cebb4cc36ab8.css" integrity="sha256-KEyPwhztE8V52QJ6nRSJPFayQ8YEUAEYA5HOu0zDarg=">
+<script defer src="/docencia/en.search.min.953f75fac030c0502a6de6ccdb402714c9ce92aa1b3da663c560246273f35633.js" integrity="sha256-lT91&#43;sAwwFAqbebM20AnFMnOkqobPaZjxWAkYnPzVjM="></script>
+<link rel="alternate" type="application/rss+xml" href="/docencia/docs/linux/guia_basica/comandos/index.xml" title="Docencia" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/docencia"><img src="/docencia/gopher.png" alt="Logo" /><span>Docencia</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/estadistica/" class="">Estadistica</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/estadistica/bayes_no_tecnica/" class="">Bayes no tecnica</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/estadistica/bayes/" class="">Bayes</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/programacion/" class="">Programacion</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/programacion/awk/" class="">Programacion Basica en AWK</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/programacion/regex/" class="">Expresiones Regulares</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/docencia/docs/linux/" class="">Linux</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/" class="collapsed ">Linux a nivel de usuario</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/historia/" class="collapsed ">Historia</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/uso_practico/" class="collapsed ">Uso Practico</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/docencia/docs/linux/guia_basica/comandos/" class="collapsed active">Comandos</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/docencia/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Comandos</strong>
+
+  <label for="toc-control">
+    <img src="/docencia/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#convenciones">Convenciones</a></li>
+        <li><a href="#comandos-basicos">Comandos basicos</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#comandos-intermedios">Comandos intermedios</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h2 id="convenciones">Convenciones</h2>
+<p>El formato que usamos en esta guia es:</p>
+<p>comando  [-<em>opcion1</em> -<em>opcion2</em>]   <em>argumento1</em> <em>argumento2</em> &hellip;</p>
+<p>En general las opciones pueden escribirse también:   comando -opcion1opcion2.  Los corchetes se usan para delimitar opciones, pero no deben incluirse al escribir el comando. El texto en cursiva representa algo que debe reemplazarse por texto según el requerimiento del usuario. A veces se usan puntos suspensivos para indicar que es posible agregar más argumentos del mismo tipo. Solamente se entregan las opciones comunmente usadas (segun el subjetivo criterio del autor).</p>
+<p>En varios casos, se puede utilizar “comodines” en argumentos para comandos. Estos comodines representan varios caracteres a la vez y permiten ejecutar el comando en varios argumentos a la vez. Los principales comodines son “*”: cualquier caracter, cualquier numero de veces y “?”: Cualquier carácter, una vez.</p>
+<h2 id="comandos-basicos">Comandos basicos</h2>
+<h4 id="man-comando">man <em>comando</em></h4>
+<p>Muestra una ayuda (manual) para el comando especificado. Normalmente la guía mostrada es bastante extensa e incluye todas las opciones del comando.
+Para salir de la ayuda basta presionar la tecla “q”.</p>
+<h4 id="halt">halt</h4>
+<p>Apaga el computador (solo el administrador de sistema, o root, puede usar este comando)</p>
+<h4 id="ls---l--a--t">ls  [-l -a -t]</h4>
+<p>Lista los contenidos de un directorio. -l entrega un formato largo, con información adicional, -a muestra también los archivos ocultos (cualquier archivo cuyo nombre comience con un punto) y -t ordena los archivos en orden de modificación (los más nuevos primero)</p>
+<h4 id="cd--directorio">cd  <em>directorio</em></h4>
+<p>Cambia nuestro directorio actual al directorio especificado. El nombre “.” equivale al directorio actual (el comando no hace nada), el nombre “..” equivale al directorio padre del actual, el nombre “~” es nuestro directorio “home” o de trabajo. Si no se entrega argumento, cd nos lleva a nuestro directorio home. Ejemplos:
+cd ~/proyectos/porfirinas nos lleva al directorio porfirinas que es un subdirectorio de proyectos, que es un subdirectorio de nuestro directorio home.
+cd ../calculos nos lleva al directorio calculos que es un subdirectorio del directorio padre de nuestro directorio actual.</p>
+<h4 id="mkdir-nombredirectorio">mkdir <em>nombredirectorio</em></h4>
+<p>Crea un directorio con el nombre especificado. Uno puede entregar un camino (path) absoluto, partiendo desde la raíz (ej. mkdir /home/rmera/proyectos) o simplemente un nombre (ej. mkdir proyectos). En el último caso, mkdir crea un subdirectorio en el directorio actual.</p>
+<h4 id="rm--r--f----archivo">rm [-R -f]    <em>archivo</em></h4>
+<p>Borra un archivo. Si se intenta borrar un directorio, no lo hace e imprime un error.  Si se usa la opción “-R” (borrado recursivo) se puede borrar un directorio. Todo lo que contenga el directorio, se borrara tambien. En ocasiones, rm pide confirmar que se desea borrar un archivo, la opción “-f” (forzar) hace que todos los archivos se borren sin pedir confirmación.</p>
+<h4 id="cp--r-archivo1-archivo2">cp [-R] <em>archivo1 archivo2</em></h4>
+<p>Hace una copia de archivo1 llamada archivo2. Si archivo1 es un directorio se debe usar la opción -R, que copiara todos los contenidos de ese directorio a archivo2.</p>
+<h4 id="mv-archivo1-archivo2">mv <em>archivo1 archivo2</em></h4>
+<p>Mueve archivo1 a archivo2. Puede usarse para mover un archivo a un nuevo directorio (ej mv file ../file) o simplemente para renombrar un archivo.</p>
+<h4 id="ln--s-archivo1-archivo2">ln [-s] <em>archivo1 archivo2</em></h4>
+<p>Crea un “link” del archivo1 con el nombre de archivo2. archivo2 podra usarse como si fuera archivo1, y modificar uno de ellos afectará al otro (sin embargo si archivo2 se borra, archivo1 no se borrara. Si arechivo1 se borra, archivo2 pasa a ser un “link roto”, que no lleva a ninguna parte). Los links son equivalentes a los “accesos directos” de windows. Por razones que van  más allá del propósito de este curso, el comando ln siempre debe usarse con la opción “-s”.</p>
+<h4 id="cat--archivo1-archivo2-">cat  <em>archivo1 archivo2</em> &hellip;</h4>
+<p>Imprime el contenido de el o los archivos que se entreguen como argumentos en la salida estándar. El nombre del comando viene de “concatenar” que e slo que hace si se le entregan varios nombres de archivos.</p>
+<h4 id="tail--f-archivo">tail [-f] <em>archivo</em></h4>
+<p>Muestra las últimas líneas de un archivo. Si el archivo está siendo escrito y quiere verse como cambia en tiempo real puede usarse la opción f (follow). Si se usa esta opcion, se requerirá ctrl+C para salir del programa.</p>
+<h4 id="less--archivo">less  <em>archivo</em></h4>
+<p>Es una especie de visor de texto, que no permite editar. Si no se le entrega un argumento, mostrará lo que se le entregue en la entrada estandar.</p>
+<h4 id="pwd">pwd</h4>
+<p>Imprime el nombre del directorio actual en la salida estándar.</p>
+<h4 id="wc-archivo">wc <em>archivo</em></h4>
+<p>Imprime el número de palabras en un archivo (entre otros datos). Si no se le entregar un archivo, imprimirá el número de palabras de lo que se le entregue en la entrada estándar.</p>
+<h4 id="echo-texto">echo <em>texto</em></h4>
+<p>Imprime en la salida estándar lo que se le entregue como argumento.  La utilidad de este programa queda clara mas adelante.</p>
+<h4 id="touch-archivo">touch <em>archivo</em></h4>
+<p>Crea un archivo vacío o actualiza la fecha de última modificación de un archivo, sin realmente modificarlo.</p>
+<h4 id="wget---direcciondeinternetarchivo">wget   <em>direcciondeinternet/archivo</em></h4>
+<p>Baja el archivo dado de la direccion de internet (esto es, una direccion IP o el nombre de un servidor). Solo funciona si el servidor es de acceso publico (osea, no requiere autenticación).</p>
+<h2 id="comandos-intermedios">Comandos intermedios</h2>
+<h4 id="su-usuario">su <em>usuario</em></h4>
+<p>Transforma al usuario actual en usuario. Si no se entrega ningun usuario, transformara al usuario en administrador de sistemas, o “root”. Obviamente, requiere que se entregue la contrasena del usuario a transformarse en.</p>
+<h4 id="du--sh-archivo">du [-sh] <em>archivo</em></h4>
+<p>Imprime el uso de disco de los archivos que se le entreguen. La opcion “-h” debe utilizarse siempre, ya que hace que los resultados sean entendibles por humanos (osea,
+GB, MB, kB, etc). Si el archivo es un directorio, du mostrara el uso de disco por cada archivo, salvo que se entregue la opcion -s (summary), en cuyo caso se entregara solo el total.</p>
+<h4 id="df--h">df [-h]</h4>
+<p>Muestra el espacio libre y usado en los medios de almacenamiento (discos) disponibles, la opcion -h tiene el mismo significado que en el comando du</p>
+<h4 id="free--h">free [-h]</h4>
+<p>Muestra la memoria (i.e. RAM) total, usada y disponible, la opcion -h tiene la misma funcion que en los dos comandos anteriores.</p>
+<h4 id="chmod--r-permiso-archivo">chmod [-R] <em>permiso archivo</em></h4>
+<p>Cambia los permisos del archivo. Los permisos son lectura (r ), escritura (w) y ejecucion (x) y se dan y quitan con “+” y “-” respectivamente. Por ejemplo:</p>
+<pre><code>chmod +r file.txt
+</code></pre><p>Autorizaria a otros a leer el archivo file.txt.  Chmod puede usarse para dar permisos solo a algunos usuarios, pero ese uso va mas alla de los propositos de esta guia. Si estamos cambiando los permisos de un directorio podemos usar la opcion -R para que el cambio afecte a todo el contenido de ese directorio</p>
+<h4 id="chown--r-usuariousuario-archivo">chown [-R] <em>usuario.usuario archivo</em></h4>
+<p>Cambia al propietario de un archivo al usuario de preferencia. La razon por la que el number de usuario se entrega dos veces separada por un punto es que en UNIX no hay solo usuarios, si no que estos pueden juntarse en grupos. chown requiere que se entregue un grupo del usuario (cada usuario puede pertenecer a varios grupos).
+Cada usuario pertenece por lo menos a un grupo con su nombre. La opcion -R cumple la misma funcion que en chmod.</p>
+<h4 id="sed---i--spatron1patron2g-archivo">sed  [-i]  ‘s/<em>patron1</em>/<em>patron2</em>/g’ <em>archivo</em></h4>
+<p>Busca patron1 en archivo y lo reemplaza por patron2. Los patrones pueden ser <a href="https://github.com/rmera/docencia/wiki/expresiones_regulares">expresiones regulares</a>.
+Si se utiliza la opcion g al final (como aparece al principio de este parrafo) se reemplazan todas las ocurrencias de patron1, en caso contrario, se reemplaza solo la primera ocurrencia de cada linea. La opcion “-i” (“in place”) hace que sed modifique el mismo archivo de entrada. Si no se entrega, sed imprime la version modificada del archivo en la salida estandar.</p>
+<h4 id="grep--i--v-patron-archivo">grep [-i -v] “<em>patron</em>” <em>archivo</em></h4>
+<p>Busca en archivo todas las lineas donde ocurra el patron dado, y las escribe en la salida estandar. Si no se entrega un archivo, grep analizara lo que llegue por la entrada estandar, por lo que es facil acoplarlo con tuberias a la salida de otro programa.
+“patron” es una <a href="https://github.com/rmera/docencia/wiki/expresiones_regulares">expresion regular</a>. La opción -v imprime las lineas que NO contengan el patron.</p>
+<p>La opcion &ldquo;-i&rdquo; ignora las mayuculas. El ejemplo:</p>
+<pre><code>grep -i “FINAL”  mycalculation.out
+</code></pre><p>imprimira las lineas de mycalculation.out que contengan las expresiones FINAL, final, Final, fiNAL, etc.</p>
+<h4 id="find--path---name-nombre--print--delete--exec-comando---">find  <em>path</em>  -name “<em>nombre</em>” [-print -delete -exec <em>comando</em> {} ; ]</h4>
+<p>Find es un programa mas complejo que los vistos anteriormente. Es mas, en su complejidad, ignora algunos de los puntos de la filosofia de UNIX. Pese a esto, puede llegar a ser bastante util. Aca ensenamos solo una parte, la que consideramos mas util, del uso del programa.</p>
+<p>find busca en el <em>path</em> dado (osea, en un directorio, incluyendo todos sus subdirectorios) archivos con el nombre dado (en el nombre pueden usarse asteriscos “*” para simbolizar cualquier caracter o combinacion de ellos, o “?” para simbolizar un caracter cualquiera), pero no expresiones regulares. Cada vez que encuentre un archivo con el nombre dado, ejecutara una o mas acciones. Algunas acciones comunes son -print (simplemente imprime en la salida estandar el nombre del archivo encontrado, incluyendo su ubicacion), -delete (borra el archivo encontrado) y -exec.</p>
+<p>Ejemplos:</p>
+<pre><code>find   . -name “*.txt”  -print
+</code></pre><p>Busca archivos que terminen en .txt  en el directorio actual y todos sus subdirectorios, imprimiendo el nombre de cada archivo encontrado.</p>
+<pre><code>find /  -name “*calculo*” -delete  
+</code></pre><p>Busca y borra en todos los directorios (recordar que / contiene a todos los otros directorios) archivos que contengan el la expresion “calculo” en el nombre.</p>
+<p><strong>-exec</strong> es una accion compleja. Ejecuta un comando dado cada vez que se encuentra un archivo. Si se quiere entregar el nombre del archivo encontrado al comando, se escribe la expresion “{}” que sera reemplazada por el nombre del archivo encontrado. Al terminar el comando se escibre la expresion “;” El por que son necesarias las barras invertidas (backslash, “\”) va mas alla de los objetivos de este material).</p>
+<p>Ejemplos:</p>
+<pre><code>find  $HOME  -name “*.tmp”   -exec wc \{\} \;     
+</code></pre><p>Ejecutara</p>
+<p>wc <em>archivo</em></p>
+<p>para cada archivo encontrado, por lo que este comando imprimira el numero de palabras de cada archivo que termine en .tmp en el directorio home.</p>
+<p>Es posible combinar varias acciones:</p>
+<pre><code>find  /etc  -name “*.conf”   -print -exec grep “hostname”  \{\} \;    
+</code></pre><p>Para cada archivo que termine en .conf del directorio /etc (o sus subdirectorios), find imprimira su nombre (accion print) y luego ejecutara grep. El resultado final del comando es que para cada archivo .conf se imprimira su nombre y todas las lineas que contengan la expresion “hostname”.</p>
+<h4 id="tar">tar</h4>
+<p>Aunque en menor medida que find, tar es un comando complejo, que también va contra la filosofía UNIX. Aun asi, es practicamente indispensable. La función de tar es juntar varios archivos en uno solo, y, si se quiere, comprimirlos, de modo de formar el equivalente a un archivo .zip (de hecho, los archivos creados con tar pueden extraerse con WinZip).  Para comprimir archivos:</p>
+<ul>
+<li>
+<p>tar   cvzf  <em>nombredearchivocomprimido</em>.tgz  <em>patron</em></p>
+</li>
+<li>
+<p>tar  cvjf   nombredelarchivocomprimido.tbz <em>patron</em></p>
+</li>
+</ul>
+<p>Las opciones deben darse en el orden indicado.</p>
+<p>Estos dos comandos agregan todos los archivos del directorio actual que calcen con el patron dado a un archivo comprimido. En el primer caso el archivo se comprime con el programa gzip,
+mientras que en segundo se usa el programa bzip2. El primer programa comprime mas rapido mientras que el segundo logra archivos mas pequenos.  Las extensiones son las que se usan convencionalmente para los archivos creados con tar y comprimidos con los respectivos programas. Las extensiones tar.gz y tar.bz2, respectivamente, tambien se utilizan.</p>
+<p>Las opciones son entonces “c”: crear un nuevo archivo, “v”: Imprimir informacion adicional sobre el proceso (puede omitirse), “z” o “j”, indican la herramienta de compresion a utilizar, y f, que va seguido por el nombre del archivo.</p>
+<p>Ejemplos:</p>
+<pre><code>tar cvzf   geometries.tgz  *.xyz       
+</code></pre><p>Crea el archivo comprimido geometries.tgz que contiene todos los archivos del directorio actual que terminen en .xyz.</p>
+<pre><code>tar cvjf  calculation.tbz  *  
+</code></pre><p>crea el archivo comprimido con bzip2 calculations.tbz  que contiene a todos los archivos del directorio actual.</p>
+<p>Para descomprimir, simplemente se utiliza la opcion “x” en lugar de “c”.</p>
+<p>Ejemplo:</p>
+<pre><code>tar xvjf calculation.tbz   
+</code></pre><p>Extrae el contenido del archivo calculation.tbz en el directorio actual.</p>
+<h4 id="nohup-comando">nohup <em>comando</em></h4>
+<p>Normalmente, como veremos mas adelante, al cerrar una sesion de shell (por ejemplo, al desconectarnos del computador), todos los programas que estemos ejecutando seran cancelados. Esto puede prevenirse con el comando nohup (<em>no-hang up</em>). Es recomendable utilizarlo con el modificador “&amp;” para que el comando se ejecute en el background, y redirigir la salida del programa a un archivo utilizando “&gt;” . Ejemplo:</p>
+<pre><code>nohup  ridft  &gt; ridft.out &amp;
+</code></pre><h4 id="ssh---usuariocomputador">ssh   <em>usuario</em>@<em>computador</em></h4>
+<p>Inicia una sesion de shell remota en el computador objetivo con el usuario dado. “computador” puede ser una direccion IP o el nombre de un host. ssh pedira un password para el usuario, y si este es correcto, iniciara una sesion de shell en la que el usuario podra usar los comandos vistos en este curso. Toda la conexion es segura (cifrada o encriptada) de ahi el nombre, secure-shell.</p>
+<h4 id="sftp--usuariocomputador">sftp  <em>usuario</em>@<em>computador</em></h4>
+<p>Inicia una sesion de transferencia de archivos con el computador dado. El comando funciona de manera similar a ssh, pero una vez iniciada la sesion los comandos de los que se dispone difieren:
+Algunos comandos disponibles en una conexion sftp:</p>
+<ul>
+<li>ls:  Igual que el comando de UNIX en el computador remoto</li>
+<li>lls: Igual, pero en el computador local</li>
+<li>mkdir: Igual que el comando de UNIX, en el computador remoto</li>
+<li>cd: En el computador remoto</li>
+<li>lcd: En el computador local</li>
+<li>get archivo   Baja el archivo dado desde el computador remoto al local</li>
+<li>put archivo   Sube el archivo dado desde el computador local al remoto.</li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#convenciones">Convenciones</a></li>
+        <li><a href="#comandos-basicos">Comandos basicos</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#comandos-intermedios">Comandos intermedios</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
