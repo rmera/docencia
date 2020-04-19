@@ -12,7 +12,7 @@
 <title>Programacion Basica en AWK | Docencia</title>
 <link rel="icon" href="/docencia/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/docencia/book.min.284c8fc21ced13c579d9027a9d14893c56b243c6045001180391cebb4cc36ab8.css" integrity="sha256-KEyPwhztE8V52QJ6nRSJPFayQ8YEUAEYA5HOu0zDarg=">
-<script defer src="/docencia/en.search.min.953f75fac030c0502a6de6ccdb402714c9ce92aa1b3da663c560246273f35633.js" integrity="sha256-lT91&#43;sAwwFAqbebM20AnFMnOkqobPaZjxWAkYnPzVjM="></script>
+<script defer src="/docencia/en.search.min.438dd264319b387d7ad44af09d955e4a0d54d4a5cae67265bf32bd4432f7e9e1.js" integrity="sha256-Q43SZDGbOH161ErwnZVeSg1U1KXK5nJlvzK9RDL36eE="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -311,10 +311,10 @@ AFFLWHHEIFHASQYCLGGGHEDRP
 Nuestro programa anterior en awk no escribia la primera linea, la que comienza en &ldquo;&gt;&rdquo;. Escribamos un programa, algo mas complejo, que si lo hace:</p>
 <pre><code>awk '/AAEGGEAAH/ {print ANTERIOR,&quot;\n&quot;, $0}; {ANTERIOR=$0}' secuencias.fasta
 </code></pre><p>Es un poco dificil descifrar lo que hace este programa, porque involucra algo nuevo: Una variable definida por nosotros, que no estaba pre-definida por AWK. (ademas, este es el primer programa en el que definimos mas de una accion!)</p>
-<p>OK, veaoms el programa. Tiene dos patrones. El primero es <em>/AAEGGEAAH/</em> Como vimos, las barras &ldquo;/&rdquo; al rededor del texto indican que el patron se cumple si la linea actual contiene ese texto. En ese caso, el programa va a imprimir dos cosas: Primero, una variable llamada &ldquo;ANTERIOR&rdquo;, luego el texto &ldquo;\n&rdquo; y finalmente, la linea actual ($0).</p>
+<p>OK, veamos el programa. Tiene dos patrones. El primero es <em>/AAEGGEAAH/</em> Como vimos, las barras &ldquo;/&rdquo; al rededor del texto indican que el patron se cumple si la linea actual contiene ese texto. En ese caso, el programa va a imprimir dos cosas: Primero, una variable llamada &ldquo;ANTERIOR&rdquo;, luego el texto &ldquo;\n&rdquo; y finalmente, la linea actual ($0).</p>
 <p>El texto &ldquo;\n&rdquo; no es mas que el boton  <strong>enter</strong> o cambio de linea.</p>
 <p>Que valor contiene la variable ANTERIOR?. Esa variable la definimos en la siguiente accion. La siguiente accion no tiene ningun patron, por lo que se ejecuta para todas las lineas. Lo unico que hace es definir la variable ANTERIOR como el texto de la linea actual.</p>
-<p>Aca biene lo complicado. AWK ejecuta las acciones en el orden que nosotros se las damos. Ppor lo que si analiza un archivo que tiene este texto:</p>
+<p>Aca viene lo complicado. AWK ejecuta las acciones en el orden que nosotros se las damos. Ppor lo que si analiza un archivo que tiene este texto:</p>
 <pre><code>&gt;primera 
  AAAAGRTYAAEGGEAAHHHEG
 </code></pre><p>En la primera linea, el patron <em>/AAEGGEAAH/</em> no se cumple, por lo que AWK <strong>no</strong> realiza la accion {print ANTERIOR,&quot;\n&rdquo;, $0}. Sin embargo, la siguiente accion no tiene patron asociado, por lo que se realiza siempre. Esto significa que desde ahora, la variable ANTERIOR tiene el siguiente valor: &ldquo;&gt;primera&rdquo; (el contenido de la line actual).</p>
