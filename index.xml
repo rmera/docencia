@@ -42,6 +42,26 @@ Tomemos los casos de COVID19 en Chile como ejemplo. Sabemos que es muy dificil r
     </item>
     
     <item>
+      <title>Fisicoquimica I</title>
+      <link>/docencia/docs/cursosuniversitarios/fisicoquimicai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docencia/docs/cursosuniversitarios/fisicoquimicai/</guid>
+      <description>Aca pueden bajar el PDF de mi apunte para el curso de Fisicoquimica I. Noten que es un apunte, no un libro de texto. Varias cosas no aparecen, porque he preferido dibujarlas o escribirlas a mano durante la clase (por eso, tambien, los espacios en blanco).
+Apunte de FQI </description>
+    </item>
+    
+    <item>
+      <title>Quimica Gral. I</title>
+      <link>/docencia/docs/cursosuniversitarios/quimicagenerali/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/docencia/docs/cursosuniversitarios/quimicagenerali/</guid>
+      <description>Aunque no enseno Quimica General I, junto a mi colega el Dr. Moises Dominguez preparamos un apunte para los contenidos de estructura electronica y molecular, al nivel en que se ven en esa asignatura. El apunte pretende ayudar a cada estudiante con el tiempo de trabajo autonomo que los cursos incluyen, y, de ninguna manera, pretende ser un reemplazo para la asistencia a clases y seminarios.
+Apunte de Estructura electronica </description>
+    </item>
+    
+    <item>
       <title>Expresiones Regulares</title>
       <link>/docencia/docs/programacion/regex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

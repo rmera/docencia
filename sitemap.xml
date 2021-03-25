@@ -39,11 +39,15 @@
   </url>
   
   <url>
-    <loc>/docencia/docs/fisicoquimicai/</loc>
+    <loc>/docencia/docs/cursosuniversitarios/</loc>
   </url>
   
   <url>
-    <loc>/docencia/docs/quimicagenerali/</loc>
+    <loc>/docencia/docs/cursosuniversitarios/fisicoquimicai/</loc>
+  </url>
+  
+  <url>
+    <loc>/docencia/docs/cursosuniversitarios/quimicagenerali/</loc>
   </url>
   
   <url>
